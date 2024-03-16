@@ -1,0 +1,43 @@
+
+//
+//	Super Metroid
+//
+
+supermetroid/switch "sounds/supermetroid/AmmoSelect.wav"
+supermetroid/missileshot "sounds/supermetroid/AmmoMissileShot.wav"
+supermetroid/supermissileshot "sounds/supermetroid/AmmoSuperMissileShot.wav"
+supermetroid/powerbombshot "sounds/supermetroid/AmmoPowerBombShot.wav"
+supermetroid/beamshot1 "sounds/supermetroid/BeamShot1.wav"
+supermetroid/beamshot2 "sounds/supermetroid/BeamShot2.wav"
+supermetroid/beamshot3 "sounds/supermetroid/BeamShot3.wav"
+supermetroid/icebeamshot1 "sounds/supermetroid/BeamIceShot1.wav"
+supermetroid/icebeamshot2 "sounds/supermetroid/BeamIceShot2.wav"
+supermetroid/wavebeamshot "sounds/supermetroid/BeamWaveShot.wav"
+supermetroid/spazershot "sounds/supermetroid/BeamSpazerShot.wav"
+supermetroid/plasmabeamshot "sounds/supermetroid/BeamPlasmaShot.wav"
+supermetroid/hyperbeamshot1 "sounds/supermetroid/BeamHyperShot1.wav"
+supermetroid/hyperbeamshot2 "sounds/supermetroid/BeamHyperShot2.wav"
+supermetroid/explosion "sounds/supermetroid/Explosion.wav"
+supermetroid/explosioncut "sounds/supermetroid/ExplosionCut.wav"
+supermetroid/explosionlow "sounds/supermetroid/ExplosionLow.wav"
+supermetroid/explosionbig "sounds/supermetroid/Explosion.wav"
+$pitchset supermetroid/explosionbig 0.75;
+supermetroid/pickupammo "sounds/supermetroid/PickupAmmo.wav"
+supermetroid/pickupammolow "sounds/supermetroid/PickupAmmo.wav"
+$pitchset supermetroid/pickupammolow 0.75;
+supermetroid/pickupheal "sounds/supermetroid/PickupHeal.wav"
+supermetroid/impact "sounds/supermetroid/Impact.wav"
+supermetroid/impactlow1 "sounds/supermetroid/ImpactLow1.wav"
+supermetroid/impactlow2 "sounds/supermetroid/ImpactLow2.wav"
+
+//
+//	Halo 3
+//
+
+halo3/shieldhit "sounds/halo3/shieldhit.wav"
+halo3/shieldsiphon "sounds/halo3/shieldhit.wav"
+$pitchset halo3/shieldsiphon 0.75;
+$volume halo3/shieldsiphon 1;
+halo3/shieldlow "sounds/halo3/shieldlow.wav"
+halo3/shielddepleted "sounds/halo3/shielddepleted.wav"
+halo3/shieldcharge "sounds/halo3/shieldcharge.wav"

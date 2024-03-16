@@ -1,0 +1,88 @@
+version "4.0"
+
+#include "zscript/sinscifi/player.zs"
+#include "zscript/sinscifi/doom/armor.zs"
+#include "zscript/sinscifi/halo/armor.zs"
+#include "zscript/sinscifi/metroid/armcannon.zs"
+#include "zscript/sinscifi/metroid/armor.zs"
+#include "zscript/sinscifi/metroid/weapons.zs"
+#include "zscript/sinscifi/metroid/projectiles.zs"
+#include "zscript/sinscifi/metroid/upgrades.zs"
+#include "zscript/sinscifi/metroid/recipes.zs"
+#include "zscript/sinscifi/metroid/cheats.zs"
+
+Class SinShielding : SinTool{
+	string shielding; property Shielding : shielding;
+	int delta;
+	Default{
+		Inventory.Icon "SUITA0";
+		Tag "YOU SHOULDN'T SEE THIS.";
+		Inventory.Amount 1;
+		Inventory.MaxAmount 1;
+		Inventory.PickupMessage "YOU SHOULDN'T SEE THIS.";
+		SinItem.Description "YOU SHOULDN'T SEE THIS.";
+		//SinItem.OnBattery 1;
+		SinItem.Stackable 0;
+		SinItem.RemoveWhenEmpty 1;
+	}
+	States{Spawn: SUIT A -1; Stop;}
+	Override bool Use(bool pickup){
+		If(Amount>0){
+			If(!active){active=1;}
+			Else{active=0;}
+			HandleSprite();
+		}
+		Return 0;
+	}
+	Override void DoEffect(){
+		If(active){
+			let suit = PowerShielding(owner.FindInventory(shielding));
+			If(suit){suit.EffectTics=255;}
+			Else{owner.GiveInventory(shielding,1);}
+			//delta++;
+			If(delta>=105){Amount--; delta=0;}
+			If(Amount<1){
+				active=0;
+				owner.A_StartSound("tools/turnoff",CHAN_ITEM);
+				HandleSprite();
+			}
+		}Else{owner.TakeInventory(shielding,1);}
+	}
+	Override void DetachFromOwner(){
+		active=0;
+		owner.TakeInventory(shielding,1);
+		HandleSprite();
+	}
+}
+
+Class SciFiEventHandler : EventHandler{
+	/*
+	int armorRepairDelay;
+	int armorRepairRate;
+	Override void WorldTick(){
+		For(int i=0; i<MAXPLAYERS; i++){
+			If(!playeringame[i] || !players[i].mo){Continue;}
+			let invman = SinInvManager(players[i].mo.FindInventory("SinInvManager"));If(!invman){Return;}
+			let armor = BasicArmor(players[i].mo.FindInventory("BasicArmor"));If(!armor){Return;}
+			armorRepairDelay--;
+			If(armorRepairDelay <= 0){armorRepairRate--;}
+			If(armor.ArmorType=="SinMJOLNIRMKVII" || armor.ArmorType=="SinMJOLNIRGENII" || armor.ArmorType=="SinMJOLNIRGENIII"){
+				players[i].mo.A_GiveInventory(shielding,1);
+				If(armorRepairDelay <= 0 && armorRepairRate <= 0){
+					armorRepairRate = 5;
+					//players[i].mo.A_Print("Armor Repairing..",0.25);
+					If(armor.Amount < armor.MaxAmount){armor.Amount++;}
+				}
+			}
+			Else{players[i].mo.A_TakeInventory(shielding,1);}
+		}
+	}
+	*/
+}
+
+Class NuclearCyberdemon : Cyberdemon{
+	States{
+		Missile:
+			#### # 35 A_CustomMissile("NuclearRocket", 34, 0, 0, 0);
+	}
+}

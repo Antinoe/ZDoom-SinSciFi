@@ -1,0 +1,4 @@
+GameInfo{
+	AddEventHandlers = "SciFiEventHandler"
+	AddPlayerClasses = "SinPlayerSpartanII", "SinPlayerSpartanIII", "SinPlayerSpartanIV", "SinPlayerHunter", "SinPlayerSlayer"
+}

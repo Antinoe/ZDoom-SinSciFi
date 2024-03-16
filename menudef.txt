@@ -1,0 +1,50 @@
+
+AddOptionMenu "OptionsMenu"{
+	Submenu "Sin SciFi","SinSciFiOptions"
+}
+OptionMenu "SinSciFiOptions"{
+	Title "Sin SciFi"
+	Submenu "Info","SinSciFiInfo"
+	StaticText ""
+	Submenu "General","SinSciFiOptionsGeneral"
+	Submenu "Skulls","SinSciFiSkulls"
+}
+OptionMenu "SinSciFiInfo"{
+	Title "Information"
+	StaticText ""
+	StaticText "This is a very WIP mod about various SciFi franchises."
+	StaticText "I wasn't expecting to upload it so soon, so it's pretty unpolished."
+	StaticText ""
+	Submenu "Recipes","SinSciFiRecipes"
+}
+OptionMenu "SinSciFiRecipes"{
+	Title "Recipes"
+	StaticText ""
+	StaticText "SuitEnergy + Chaingun = Spazer"
+	StaticText "SuitEnergy + PlasmaRifle = IceBeam"
+	StaticText "SuitEnergy + SuperShotgun = WaveBeam"
+	StaticText "SuitEnergy + RocketLauncher = PlasmaBeam"
+	StaticText "SuitEnergy + Grenade/ProxMine = MissileTank"
+	StaticText "SuitEnergy + MissileTankPenta = SuperMissileTank"
+	StaticText ""
+	StaticText "NOTE:"
+	StaticText "[Combining Missile Tanks together will result in expansions.]"
+	StaticText "[Same with Super Missile Tanks.]"
+	StaticText ""
+	StaticText "SuitEnergy + Chaingun = Spazer"
+	StaticText "PowerSuit + RadSuit = VariaSuit"
+	StaticText "VariaSuit + PlasmaRifle = GravitySuit"
+}
+OptionMenu "SinSciFiOptionsGeneral"{
+	Option "Debug Messages","sinscifi_debug","OnOff"
+	StaticText "Enables debug messages for, well, debugging."
+	StaticText "$SINOPT_DEFOFF",1
+}
+OptionMenu "SinSciFiSkulls"{
+	StaticText "Skulls are gameplay modifiers."
+	StaticText ""
+	Option "Streaking","sinscifi_skull_streaking","OnOff"
+	StaticText "Your shielding slowly decays over time,"
+	StaticText "but an eighth of the damage you deal will be transfered to it."
+	StaticText "$SINOPT_DEFOFF",1
+}
