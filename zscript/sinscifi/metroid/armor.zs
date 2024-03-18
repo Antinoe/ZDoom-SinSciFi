@@ -33,38 +33,42 @@ Class PowerPowerSuit : PowerShielding{
 	Default{
 		Inventory.Icon "SUITX0";
 		PowerShielding.ShieldingRechargeable 0;
-		PowerShielding.ShieldingSiphon 1;
-		PowerShielding.ShieldingAmount 500;
-		PowerShielding.ShieldingMaxAmount 500;
-		PowerShielding.ShieldingRegenDelay 420;
-		PowerShielding.ShieldingRegenRate 1;
-		PowerShielding.ShieldingRegenAmount 2;
-		PowerShielding.ShieldingProtection 0.75;
-		PowerShielding.SuitProtection 0.25;
 		PowerShielding.HitSound "halo3/shieldhit";
 		PowerShielding.SiphonSound "halo3/shieldsiphon";
 		PowerShielding.LowSound "halo3/shieldlow";
 		PowerShielding.DepletedSound "halo3/shielddepleted";
 		PowerShielding.ChargeSound "halo3/shieldcharge";
 	}
+	Override void PostBeginPlay(){
+		shieldingAmount = sinscifi_powersuit_shieldingamount;
+		shieldingMaxAmount = sinscifi_powersuit_shieldingmaxamount;
+		shieldingRegenDelay = sinscifi_powersuit_shieldingregendelay;
+		shieldingRegenRate = sinscifi_powersuit_shieldingregenrate;
+		shieldingRegenAmount = sinscifi_powersuit_shieldingregenamount;
+		shieldingProtection = sinscifi_powersuit_shieldingprotection;
+		suitProtection = sinscifi_powersuit_suitprotection;
+		Super.PostBeginPlay();
+	}
 }
 Class PowerVariaSuit : PowerShielding{
 	Default{
 		Inventory.Icon "SUITS0";
 		PowerShielding.ShieldingRechargeable 0;
-		PowerShielding.ShieldingSiphon 1;
-		PowerShielding.ShieldingAmount 1000;
-		PowerShielding.ShieldingMaxAmount 1000;
-		PowerShielding.ShieldingRegenDelay 840;
-		PowerShielding.ShieldingRegenRate 1;
-		PowerShielding.ShieldingRegenAmount 2;
-		PowerShielding.ShieldingProtection 0.5;
-		PowerShielding.SuitProtection 0.25;
 		PowerShielding.HitSound "halo3/shieldhit";
 		PowerShielding.SiphonSound "halo3/shieldsiphon";
 		PowerShielding.LowSound "halo3/shieldlow";
 		PowerShielding.DepletedSound "halo3/shielddepleted";
 		PowerShielding.ChargeSound "halo3/shieldcharge";
+	}
+	Override void PostBeginPlay(){
+		shieldingAmount = sinscifi_variasuit_shieldingamount;
+		shieldingMaxAmount = sinscifi_variasuit_shieldingmaxamount;
+		shieldingRegenDelay = sinscifi_variasuit_shieldingregendelay;
+		shieldingRegenRate = sinscifi_variasuit_shieldingregenrate;
+		shieldingRegenAmount = sinscifi_variasuit_shieldingregenamount;
+		shieldingProtection = sinscifi_variasuit_shieldingprotection;
+		suitProtection = sinscifi_variasuit_suitprotection;
+		Super.PostBeginPlay();
 	}
 	Override void AbsorbDamage(int damage, Name damageType, out int newdamage, Actor inflictor, Actor source, int flags){
 		If(damageType=="Slime"||damageType=="Fire"){newdamage=0;}
@@ -75,19 +79,21 @@ Class PowerGravitySuit : PowerShielding{
 	Default{
 		Inventory.Icon "SUITS0";
 		PowerShielding.ShieldingRechargeable 0;
-		PowerShielding.ShieldingSiphon 1;
-		PowerShielding.ShieldingAmount 2000;
-		PowerShielding.ShieldingMaxAmount 2000;
-		PowerShielding.ShieldingRegenDelay 1260;
-		PowerShielding.ShieldingRegenRate 1;
-		PowerShielding.ShieldingRegenAmount 2;
-		PowerShielding.ShieldingProtection 0.25;
-		PowerShielding.SuitProtection 0.25;
 		PowerShielding.HitSound "halo3/shieldhit";
 		PowerShielding.SiphonSound "halo3/shieldsiphon";
 		PowerShielding.LowSound "halo3/shieldlow";
 		PowerShielding.DepletedSound "halo3/shielddepleted";
 		PowerShielding.ChargeSound "halo3/shieldcharge";
+	}
+	Override void PostBeginPlay(){
+		shieldingAmount = sinscifi_gravitysuit_shieldingamount;
+		shieldingMaxAmount = sinscifi_gravitysuit_shieldingmaxamount;
+		shieldingRegenDelay = sinscifi_gravitysuit_shieldingregendelay;
+		shieldingRegenRate = sinscifi_gravitysuit_shieldingregenrate;
+		shieldingRegenAmount = sinscifi_gravitysuit_shieldingregenamount;
+		shieldingProtection = sinscifi_gravitysuit_shieldingprotection;
+		suitProtection = sinscifi_gravitysuit_suitprotection;
+		Super.PostBeginPlay();
 	}
 	Override void AbsorbDamage(int damage, Name damageType, out int newdamage, Actor inflictor, Actor source, int flags){
 		If(damageType=="Slime"||damageType=="Fire"||damageType=="Lava"||damageType=="Acid"){newdamage=0;}

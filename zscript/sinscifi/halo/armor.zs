@@ -109,39 +109,47 @@ Class SinMJOLNIRGenIII : SinShielding{
 Class PowerMJOLNIRMark5 : PowerShielding{
 	Default{
 		PowerShielding.ShieldingRechargeable 1;
-		PowerShielding.ShieldingAmount 0;
-		PowerShielding.ShieldingMaxAmount 75;
-		PowerShielding.ShieldingRegenDelay 175;
-		PowerShielding.ShieldingRegenRate 2;
-		PowerShielding.ShieldingRegenAmount 1;
-		PowerShielding.ShieldingProtection 0.5;
-		PowerShielding.SuitProtection 0.5;
 		PowerShielding.HitSound "halo3/shieldhit";
 		PowerShielding.SiphonSound "halo3/shieldsiphon";
 		PowerShielding.LowSound "halo3/shieldlow";
 		PowerShielding.DepletedSound "halo3/shielddepleted";
 		PowerShielding.ChargeSound "halo3/shieldcharge";
+	}
+	Override void PostBeginPlay(){
+		shieldingAmount=sinscifi_mjolnirmark5_shieldingamount;
+		shieldingMaxAmount=sinscifi_mjolnirmark5_shieldingmaxamount;
+		shieldingRegenDelay=sinscifi_mjolnirmark5_shieldingregendelay;
+		shieldingRegenRate=sinscifi_mjolnirmark5_shieldingregenrate;
+		shieldingRegenAmount=sinscifi_mjolnirmark5_shieldingregenamount;
+		shieldingProtection=sinscifi_mjolnirmark5_shieldingprotection;
+		suitProtection=sinscifi_mjolnirmark5_suitprotection;
+		Super.PostBeginPlay();
 	}
 }
 Class PowerMJOLNIRMark6 : PowerShielding{
 	Default{
 		PowerShielding.ShieldingRechargeable 1;
-		PowerShielding.ShieldingAmount 0;
-		PowerShielding.ShieldingMaxAmount 70;
-		PowerShielding.ShieldingRegenDelay 140;
-		PowerShielding.ShieldingRegenRate 1;
-		PowerShielding.ShieldingRegenAmount 1;
-		PowerShielding.ShieldingProtection 0.5;
-		PowerShielding.SuitProtection 0.5;
 		PowerShielding.HitSound "halo3/shieldhit";
 		PowerShielding.SiphonSound "halo3/shieldsiphon";
 		PowerShielding.LowSound "halo3/shieldlow";
 		PowerShielding.DepletedSound "halo3/shielddepleted";
 		PowerShielding.ChargeSound "halo3/shieldcharge";
 	}
+	Override void PostBeginPlay(){
+		shieldingAmount=sinscifi_mjolnirmark6_shieldingamount;
+		shieldingMaxAmount=sinscifi_mjolnirmark6_shieldingmaxamount;
+		shieldingRegenDelay=sinscifi_mjolnirmark6_shieldingregendelay;
+		shieldingRegenRate=sinscifi_mjolnirmark6_shieldingregenrate;
+		shieldingRegenAmount=sinscifi_mjolnirmark6_shieldingregenamount;
+		shieldingProtection=sinscifi_mjolnirmark6_shieldingprotection;
+		suitProtection=sinscifi_mjolnirmark6_suitprotection;
+		Super.PostBeginPlay();
+	}
 	Override void ShieldBeginCharge(){
-		owner.A_GiveInventory("PowerBiofoamInjector",1);
-		owner.A_PlaySound("",CHAN_AUTO,CHANF_OVERLAP);
+		If(sinscifi_mjolnir_biofoaminjector){
+			owner.A_GiveInventory("PowerBiofoamInjector",1);
+			owner.A_PlaySound("",CHAN_AUTO,CHANF_OVERLAP);
+		}
 		Super.ShieldBeginCharge();
 	}
 	Override void ModifyDamage (int damage, Name damageType, out int newdamage, bool passive, Actor inflictor, Actor source, int flags){
@@ -155,58 +163,88 @@ Class PowerBiofoamInjector : PowerRegeneration{
 	}
 	Override void DoEffect(){
 		//	Need to find a consistent Max Health property..
-		owner.GiveBody(1,9999);
+		owner.GiveBody(1,sinscifi_maxbiofoamhealamount);
 		//owner.A_LogInt(owner.Health);
 	}
 }
 Class PowerMJOLNIRMark7 : PowerShielding{
 	Default{
 		PowerShielding.ShieldingRechargeable 1;
-		PowerShielding.ShieldingAmount 0;
-		PowerShielding.ShieldingMaxAmount 100;
-		PowerShielding.ShieldingRegenDelay 70;
-		PowerShielding.ShieldingRegenRate 1;
-		PowerShielding.ShieldingRegenAmount 1;
-		PowerShielding.ShieldingProtection 0.5;
-		PowerShielding.SuitProtection 0.5;
 		PowerShielding.HitSound "halo3/shieldhit";
 		PowerShielding.SiphonSound "halo3/shieldsiphon";
 		PowerShielding.LowSound "halo3/shieldlow";
 		PowerShielding.DepletedSound "halo3/shielddepleted";
 		PowerShielding.ChargeSound "halo3/shieldcharge";
+	}
+	Override void PostBeginPlay(){
+		shieldingAmount=sinscifi_mjolnirmark7_shieldingamount;
+		shieldingMaxAmount=sinscifi_mjolnirmark7_shieldingmaxamount;
+		shieldingRegenDelay=sinscifi_mjolnirmark7_shieldingregendelay;
+		shieldingRegenRate=sinscifi_mjolnirmark7_shieldingregenrate;
+		shieldingRegenAmount=sinscifi_mjolnirmark7_shieldingregenamount;
+		shieldingProtection=sinscifi_mjolnirmark7_shieldingprotection;
+		suitProtection=sinscifi_mjolnirmark7_suitprotection;
+		Super.PostBeginPlay();
+	}
+	Override void ShieldBeginCharge(){
+		If(sinscifi_mjolnir_biofoaminjector){
+			owner.A_GiveInventory("PowerBiofoamInjector",1);
+			owner.A_PlaySound("",CHAN_AUTO,CHANF_OVERLAP);
+		}
+		Super.ShieldBeginCharge();
 	}
 }
 Class PowerMJOLNIRGen2 : PowerShielding{
 	Default{
 		PowerShielding.ShieldingRechargeable 1;
-		PowerShielding.ShieldingAmount 0;
-		PowerShielding.ShieldingMaxAmount 105;
-		PowerShielding.ShieldingRegenDelay 70;
-		PowerShielding.ShieldingRegenRate 1;
-		PowerShielding.ShieldingRegenAmount 1;
-		PowerShielding.ShieldingProtection 0.5;
-		PowerShielding.SuitProtection 0.5;
 		PowerShielding.HitSound "halo3/shieldhit";
 		PowerShielding.SiphonSound "halo3/shieldsiphon";
 		PowerShielding.LowSound "halo3/shieldlow";
 		PowerShielding.DepletedSound "halo3/shielddepleted";
 		PowerShielding.ChargeSound "halo3/shieldcharge";
 	}
+	Override void PostBeginPlay(){
+		shieldingAmount=sinscifi_mjolnirgen2_shieldingamount;
+		shieldingMaxAmount=sinscifi_mjolnirgen2_shieldingmaxamount;
+		shieldingRegenDelay=sinscifi_mjolnirgen2_shieldingregendelay;
+		shieldingRegenRate=sinscifi_mjolnirgen2_shieldingregenrate;
+		shieldingRegenAmount=sinscifi_mjolnirgen2_shieldingregenamount;
+		shieldingProtection=sinscifi_mjolnirgen2_shieldingprotection;
+		suitProtection=sinscifi_mjolnirgen2_suitprotection;
+		Super.PostBeginPlay();
+	}
+	Override void ShieldBeginCharge(){
+		If(sinscifi_mjolnir_biofoaminjector){
+			owner.A_GiveInventory("PowerBiofoamInjector",1);
+			owner.A_PlaySound("",CHAN_AUTO,CHANF_OVERLAP);
+		}
+		Super.ShieldBeginCharge();
+	}
 }
 Class PowerMJOLNIRGen3 : PowerShielding{
 	Default{
 		PowerShielding.ShieldingRechargeable 1;
-		PowerShielding.ShieldingAmount 0;
-		PowerShielding.ShieldingMaxAmount 140;
-		PowerShielding.ShieldingRegenDelay 35;
-		PowerShielding.ShieldingRegenRate 1;
-		PowerShielding.ShieldingRegenAmount 1;
-		PowerShielding.ShieldingProtection 0.5;
-		PowerShielding.SuitProtection 0.5;
 		PowerShielding.HitSound "halo3/shieldhit";
 		PowerShielding.SiphonSound "halo3/shieldsiphon";
 		PowerShielding.LowSound "halo3/shieldlow";
 		PowerShielding.DepletedSound "halo3/shielddepleted";
 		PowerShielding.ChargeSound "halo3/shieldcharge";
+	}
+	Override void PostBeginPlay(){
+		shieldingAmount=sinscifi_mjolnirgen3_shieldingamount;
+		shieldingMaxAmount=sinscifi_mjolnirgen3_shieldingmaxamount;
+		shieldingRegenDelay=sinscifi_mjolnirgen3_shieldingregendelay;
+		shieldingRegenRate=sinscifi_mjolnirgen3_shieldingregenrate;
+		shieldingRegenAmount=sinscifi_mjolnirgen3_shieldingregenamount;
+		shieldingProtection=sinscifi_mjolnirgen3_shieldingprotection;
+		suitProtection=sinscifi_mjolnirgen3_suitprotection;
+		Super.PostBeginPlay();
+	}
+	Override void ShieldBeginCharge(){
+		If(sinscifi_mjolnir_biofoaminjector){
+			owner.A_GiveInventory("PowerBiofoamInjector",1);
+			owner.A_PlaySound("",CHAN_AUTO,CHANF_OVERLAP);
+		}
+		Super.ShieldBeginCharge();
 	}
 }

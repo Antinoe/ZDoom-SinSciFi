@@ -11,18 +11,20 @@ Class SinPraetorSuit : SinShielding{
 Class PowerPraetorSuit : PowerShielding{
 	Default{
 		PowerShielding.ShieldingRechargeable 0;
-		PowerShielding.ShieldingSiphon 1;
-		PowerShielding.ShieldingAmount 200;
-		PowerShielding.ShieldingMaxAmount 200;
-		PowerShielding.ShieldingRegenDelay 70;
-		PowerShielding.ShieldingRegenRate 1;
-		PowerShielding.ShieldingRegenAmount 1;
-		PowerShielding.ShieldingProtection 0.5;
-		PowerShielding.SuitProtection 0.1;
 		PowerShielding.HitSound "halo3/shieldhit";
 		PowerShielding.SiphonSound "halo3/shieldsiphon";
 		PowerShielding.LowSound "halo3/shieldlow";
 		PowerShielding.DepletedSound "halo3/shielddepleted";
 		PowerShielding.ChargeSound "halo3/shieldcharge";
+	}
+	Override void PostBeginPlay(){
+		shieldingAmount = sinscifi_praetorsuit_shieldingamount;
+		shieldingMaxAmount = sinscifi_praetorsuit_shieldingmaxamount;
+		shieldingRegenDelay = sinscifi_praetorsuit_shieldingregendelay;
+		shieldingRegenRate = sinscifi_praetorsuit_shieldingregenrate;
+		shieldingRegenAmount = sinscifi_praetorsuit_shieldingregenamount;
+		shieldingProtection = sinscifi_praetorsuit_shieldingprotection;
+		suitProtection = sinscifi_praetorsuit_suitprotection;
+		Super.PostBeginPlay();
 	}
 }

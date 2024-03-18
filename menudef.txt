@@ -8,6 +8,13 @@ OptionMenu "SinSciFiOptions"{
 	StaticText ""
 	Submenu "General","SinSciFiOptionsGeneral"
 	Submenu "Skulls","SinSciFiSkulls"
+	StaticText ""
+	Submenu "Halo","SinSciFiOptionsHalo"
+	Submenu "Metroid","SinSciFiOptionsMetroid"
+	Submenu "DOOM","SinSciFiOptionsDOOM"
+	//StaticText ""
+	//	Need to finish this first before putting it in the menu.
+	//SafeCommand "Reset All to Default","sinscifi_reset","This will reset all Armor Values to their defaults. Are you sure?"
 }
 OptionMenu "SinSciFiInfo"{
 	Title "Information"
@@ -47,4 +54,121 @@ OptionMenu "SinSciFiSkulls"{
 	StaticText "Your shielding slowly decays over time,"
 	StaticText "but an eighth of the damage you deal will be transfered to it."
 	StaticText "$SINOPT_DEFOFF",1
+}
+OptionMenu "SinSciFiOptionsHalo"{
+	Title "Halo Armor Options"
+	StaticText ""
+	StaticText "MJOLNIR MARK V"
+	Slider "Shielding","sinscifi_mjolnirmark5_shieldingamount",10,200,5,0
+	Slider "Max Shielding","sinscifi_mjolnirmark5_shieldingmaxamount",10,200,5,0
+	Slider "Shielding Regen Delay","sinscifi_mjolnirmark5_shieldingregendelay",10,200,5,0
+	Slider "Shielding Regen Rate","sinscifi_mjolnirmark5_shieldingregenrate",1,35,1,0
+	Slider "Shielding Regen Amount","sinscifi_mjolnirmark5_shieldingregenamount",1,10,1,0
+	//Slider "Shielding Protection","sinscifi_mjolnirmark5_shieldingprotection",0.1,1.0,0.05,0
+	//Slider "Suit Protection","sinscifi_mjolnirmark5_suitprotection",0.1,1.0,0.05,0
+	TextField "Shielding Protection","sinscifi_mjolnirmark5_shieldingprotection"
+	TextField "Suit Protection","sinscifi_mjolnirmark5_suitprotection"
+	StaticText "(Default: 75,75,175,2,1,0.5,0.5)"
+	StaticText ""
+	StaticText "MJOLNIR MARK VI"
+	Slider "Shielding","sinscifi_mjolnirmark6_shieldingamount",10,200,5,0
+	Slider "Max Shielding","sinscifi_mjolnirmark6_shieldingmaxamount",10,200,5,0
+	Slider "Shielding Regen Delay","sinscifi_mjolnirmark6_shieldingregendelay",10,200,5,0
+	Slider "Shielding Regen Rate","sinscifi_mjolnirmark6_shieldingregenrate",1,35,1,0
+	Slider "Shielding Regen Amount","sinscifi_mjolnirmark6_shieldingregenamount",1,10,1,0
+	//Slider "Shielding Protection","sinscifi_mjolnirmark6_shieldingprotection",0.1,1.0,0.05,0
+	//Slider "Suit Protection","sinscifi_mjolnirmark6_suitprotection",0.1,1.0,0.05,0
+	TextField "Shielding Protection","sinscifi_mjolnirmark6_shieldingprotection"
+	TextField "Suit Protection","sinscifi_mjolnirmark6_suitprotection"
+	StaticText "(Default: 70,70,140,1,1,0.5,0.5)"
+	StaticText ""
+	StaticText "MJOLNIR MARK VII"
+	Slider "Shielding","sinscifi_mjolnirmark7_shieldingamount",10,200,5,0
+	Slider "Max Shielding","sinscifi_mjolnirmark7_shieldingmaxamount",10,200,5,0
+	Slider "Shielding Regen Delay","sinscifi_mjolnirmark7_shieldingregendelay",10,200,5,0
+	Slider "Shielding Regen Rate","sinscifi_mjolnirmark7_shieldingregenrate",1,35,1,0
+	Slider "Shielding Regen Amount","sinscifi_mjolnirmark7_shieldingregenamount",1,10,1,0
+	//Slider "Shielding Protection","sinscifi_mjolnirmark7_shieldingprotection",0.1,1.0,0.05,0
+	//Slider "Suit Protection","sinscifi_mjolnirmark7_suitprotection",0.1,1.0,0.05,0
+	TextField "Shielding Protection","sinscifi_mjolnirmark7_shieldingprotection"
+	TextField "Suit Protection","sinscifi_mjolnirmark7_suitprotection"
+	StaticText "(Default: 70,70,140,1,1,0.5,0.5)"
+	StaticText ""
+	StaticText "MJOLNIR GEN II"
+	Slider "Shielding","sinscifi_mjolnirgen2_shieldingamount",10,200,5,0
+	Slider "Max Shielding","sinscifi_mjolnirgen2_shieldingmaxamount",10,200,5,0
+	Slider "Shielding Regen Delay","sinscifi_mjolnirgen2_shieldingregendelay",10,200,5,0
+	Slider "Shielding Regen Rate","sinscifi_mjolnirgen2_shieldingregenrate",1,35,1,0
+	Slider "Shielding Regen Amount","sinscifi_mjolnirgen2_shieldingregenamount",1,10,1,0
+	//Slider "Shielding Protection","sinscifi_mjolnirgen2_shieldingprotection",0.1,1.0,0.05,0
+	//Slider "Suit Protection","sinscifi_mjolnirgen2_suitprotection",0.1,1.0,0.05,0
+	TextField "Shielding Protection","sinscifi_mjolnirgen2_shieldingprotection"
+	TextField "Suit Protection","sinscifi_mjolnirgen2_suitprotection"
+	StaticText "(Default: 70,70,140,1,1,0.5,0.5)"
+	StaticText ""
+	StaticText "MJOLNIR GEN III"
+	Slider "Shielding","sinscifi_mjolnirgen3_shieldingamount",10,200,5,0
+	Slider "Max Shielding","sinscifi_mjolnirgen3_shieldingmaxamount",10,200,5,0
+	Slider "Shielding Regen Delay","sinscifi_mjolnirgen3_shieldingregendelay",10,200,5,0
+	Slider "Shielding Regen Rate","sinscifi_mjolnirgen3_shieldingregenrate",1,35,1,0
+	Slider "Shielding Regen Amount","sinscifi_mjolnirgen3_shieldingregenamount",1,10,1,0
+	//Slider "Shielding Protection","sinscifi_mjolnirgen3_shieldingprotection",0.1,1.0,0.05,0
+	//Slider "Suit Protection","sinscifi_mjolnirgen3_suitprotection",0.1,1.0,0.05,0
+	TextField "Shielding Protection","sinscifi_mjolnirgen3_shieldingprotection"
+	TextField "Suit Protection","sinscifi_mjolnirgen3_suitprotection"
+	StaticText "(Default: 100,100,35,1,1,0.5,0.5)"
+}
+OptionMenu "SinSciFiOptionsMetroid"{
+	Title "Metroid Armor Options"
+	StaticText ""
+	StaticText "POWER SUIT"
+	Slider "Shielding","sinscifi_powersuit_shieldingamount",100,4000,100,0
+	Slider "Max Shielding","sinscifi_powersuit_shieldingmaxamount",100,4000,100,0
+	Slider "Shielding Regen Delay","sinscifi_powersuit_shieldingregendelay",10,200,5,0
+	Slider "Shielding Regen Rate","sinscifi_powersuit_shieldingregenrate",1,35,1,0
+	Slider "Shielding Regen Amount","sinscifi_powersuit_shieldingregenamount",1,10,1,0
+	//Slider "Shielding Protection","sinscifi_powersuit_shieldingprotection",0.1,1.0,0.05,0
+	//Slider "Suit Protection","sinscifi_powersuit_suitprotection",0.1,1.0,0.05,0
+	TextField "Shielding Protection","sinscifi_powersuit_shieldingprotection"
+	TextField "Suit Protection","sinscifi_powersuit_suitprotection"
+	StaticText "(Default: 500,500,280,1,5,0.75,0.25)"
+	StaticText ""
+	StaticText "VARIA SUIT"
+	Slider "Shielding","sinscifi_variasuit_shieldingamount",100,4000,100,0
+	Slider "Max Shielding","sinscifi_variasuit_shieldingmaxamount",100,4000,100,0
+	Slider "Shielding Regen Delay","sinscifi_variasuit_shieldingregendelay",10,200,5,0
+	Slider "Shielding Regen Rate","sinscifi_variasuit_shieldingregenrate",1,35,1,0
+	Slider "Shielding Regen Amount","sinscifi_variasuit_shieldingregenamount",1,10,1,0
+	//Slider "Shielding Protection","sinscifi_variasuit_shieldingprotection",0.1,1.0,0.05,0
+	//Slider "Suit Protection","sinscifi_variasuit_suitprotection",0.1,1.0,0.05,0
+	TextField "Shielding Protection","sinscifi_variasuit_shieldingprotection"
+	TextField "Suit Protection","sinscifi_variasuit_suitprotection"
+	StaticText "(Default: 75,75,280,1,5,0.5,0.25)"
+	StaticText ""
+	StaticText "GRAVITY SUIT"
+	Slider "Shielding","sinscifi_gravitysuit_shieldingamount",100,4000,100,0
+	Slider "Max Shielding","sinscifi_gravitysuit_shieldingmaxamount",100,4000,100,0
+	Slider "Shielding Regen Delay","sinscifi_gravitysuit_shieldingregendelay",10,200,5,0
+	Slider "Shielding Regen Rate","sinscifi_gravitysuit_shieldingregenrate",1,35,1,0
+	Slider "Shielding Regen Amount","sinscifi_gravitysuit_shieldingregenamount",1,10,1,0
+	//Slider "Shielding Protection","sinscifi_gravitysuit_shieldingprotection",0.1,1.0,0.05,0
+	//Slider "Suit Protection","sinscifi_gravitysuit_suitprotection",0.1,1.0,0.05,0
+	TextField "Shielding Protection","sinscifi_gravitysuit_shieldingprotection"
+	TextField "Suit Protection","sinscifi_gravitysuit_suitprotection"
+	StaticText "(Default: 75,75,280,1,5,0.25,0.25)"
+}
+OptionMenu "SinSciFiOptionsDOOM"{
+	Title "DOOM Armor Options"
+	StaticText ""
+	StaticText "PRAETOR SUIT"
+	Slider "Shielding","sinscifi_powersuit_shieldingamount",10,200,5,0
+	Slider "Max Shielding","sinscifi_powersuit_shieldingmaxamount",10,200,5,0
+	Slider "Shielding Regen Delay","sinscifi_powersuit_shieldingregendelay",10,200,5,0
+	Slider "Shielding Regen Rate","sinscifi_powersuit_shieldingregenrate",1,35,1,0
+	Slider "Shielding Regen Amount","sinscifi_powersuit_shieldingregenamount",1,10,1,0
+	//Slider "Shielding Protection","sinscifi_powersuit_shieldingprotection",0.1,1.0,0.05,0
+	//Slider "Suit Protection","sinscifi_powersuit_suitprotection",0.1,1.0,0.05,0
+	TextField "Shielding Protection","sinscifi_praetorsuit_shieldingprotection"
+	TextField "Suit Protection","sinscifi_praetorsuit_suitprotection"
+	StaticText "(Default: 100,100,140,1,1,0.25,0.25)"
 }

@@ -15,8 +15,10 @@ Class SinArmCannonCheat : SinAttachment{
 		cannon.ice=1;
 		cannon.wave=1;
 		cannon.plasma=1;
-		cannon.ballisticPower=3;
+		cannon.ballisticPower+=1;
+		cannon.missileAmount+=250;
 		cannon.missileMaxAmount+=250;
+		cannon.superMissileAmount+=50;
 		cannon.superMissileMaxAmount+=50;
 	}
 	Override void Detached(SinWeapon gun){
@@ -26,8 +28,10 @@ Class SinArmCannonCheat : SinAttachment{
 		cannon.ice=0;
 		cannon.wave=0;
 		cannon.plasma=0;
-		cannon.ballisticPower=3;
+		cannon.ballisticPower-=1;
+		cannon.missileAmount-=250;
 		cannon.missileMaxAmount-=250;
+		cannon.superMissileAmount-=50;
 		cannon.superMissileMaxAmount-=50;
 	}
 }
