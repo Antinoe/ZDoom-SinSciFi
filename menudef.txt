@@ -131,7 +131,7 @@ OptionMenu "SinSciFiOptionsMetroid"{
 	//Slider "Suit Protection","sinscifi_powersuit_suitprotection",0.1,1.0,0.05,0
 	TextField "Shielding Protection","sinscifi_powersuit_shieldingprotection"
 	TextField "Suit Protection","sinscifi_powersuit_suitprotection"
-	StaticText "(Default: 500,500,280,1,5,0.8,0.25)"
+	StaticText "(Default: 500,500,140,1,5,0.8,0.25)"
 	StaticText ""
 	StaticText "VARIA SUIT"
 	Slider "Shielding","sinscifi_variasuit_shieldingamount",100,4000,100,0
@@ -143,7 +143,7 @@ OptionMenu "SinSciFiOptionsMetroid"{
 	//Slider "Suit Protection","sinscifi_variasuit_suitprotection",0.1,1.0,0.05,0
 	TextField "Shielding Protection","sinscifi_variasuit_shieldingprotection"
 	TextField "Suit Protection","sinscifi_variasuit_suitprotection"
-	StaticText "(Default: 75,75,280,1,5,0.3,0.25)"
+	StaticText "(Default: 1000,1000,140,1,5,0.3,0.25)"
 	StaticText ""
 	StaticText "GRAVITY SUIT"
 	Slider "Shielding","sinscifi_gravitysuit_shieldingamount",100,4000,100,0
@@ -155,7 +155,7 @@ OptionMenu "SinSciFiOptionsMetroid"{
 	//Slider "Suit Protection","sinscifi_gravitysuit_suitprotection",0.1,1.0,0.05,0
 	TextField "Shielding Protection","sinscifi_gravitysuit_shieldingprotection"
 	TextField "Suit Protection","sinscifi_gravitysuit_suitprotection"
-	StaticText "(Default: 75,75,280,1,5,0.05,0.25)"
+	StaticText "(Default: 2000,2000,140,1,5,0.05,0.25)"
 	StaticText ""
 	StaticText "-Metroid Weapon Options-"
 	StaticText ""
