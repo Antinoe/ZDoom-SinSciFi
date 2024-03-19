@@ -52,7 +52,7 @@ server int sinscifi_powersuit_shieldingmaxamount = 500;
 server int sinscifi_powersuit_shieldingregendelay = 280;
 server int sinscifi_powersuit_shieldingregenrate = 35;
 server int sinscifi_powersuit_shieldingregenamount = 10;
-server float sinscifi_powersuit_shieldingprotection = 0.8;
+server float sinscifi_powersuit_shieldingprotection = 0.75;
 server float sinscifi_powersuit_suitprotection = 0.25;
 
 server int sinscifi_variasuit_shieldingamount = 1000;
@@ -60,7 +60,7 @@ server int sinscifi_variasuit_shieldingmaxamount = 1000;
 server int sinscifi_variasuit_shieldingregendelay = 280;
 server int sinscifi_variasuit_shieldingregenrate = 35;
 server int sinscifi_variasuit_shieldingregenamount = 15;
-server float sinscifi_variasuit_shieldingprotection = 0.3;
+server float sinscifi_variasuit_shieldingprotection = 0.5;
 server float sinscifi_variasuit_suitprotection = 0.25;
 
 server int sinscifi_gravitysuit_shieldingamount = 2000;
@@ -68,7 +68,7 @@ server int sinscifi_gravitysuit_shieldingmaxamount = 2000;
 server int sinscifi_gravitysuit_shieldingregendelay = 280;
 server int sinscifi_gravitysuit_shieldingregenrate = 35;
 server int sinscifi_gravitysuit_shieldingregenamount = 20;
-server float sinscifi_gravitysuit_shieldingprotection = 0.05;
+server float sinscifi_gravitysuit_shieldingprotection = 0.25;
 server float sinscifi_gravitysuit_suitprotection = 0.25;
 
 server int sinscifi_missile_damage = 100;
