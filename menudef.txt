@@ -162,12 +162,14 @@ OptionMenu "SinSciFiOptionsMetroid"{
 	StaticText "MISSILE"
 	Slider "Contact Damage","sinscifi_missile_damage",50,1000,50,0
 	Slider "Splash Damage","sinscifi_missile_splashdamage",50,1000,50,0
-	StaticText "(Default: 100,50)"
+	Slider "Regen Rate","sinscifi_missile_regenrate",35,525,35,0
+	StaticText "(Default: 100,50,175)"
 	StaticText ""
 	StaticText "SUPER MISSILE"
 	Slider "Contact Damage","sinscifi_supermissile_damage",50,1000,50,0
 	Slider "Splash Damage","sinscifi_supermissile_splashdamage",50,1000,50,0
-	StaticText "(Default: 500,250)"
+	Slider "Regen Rate","sinscifi_supermissile_regenrate",35,525,35,0
+	StaticText "(Default: 500,250,525)"
 }
 OptionMenu "SinSciFiOptionsDOOM"{
 	Title "DOOM Armor Options"

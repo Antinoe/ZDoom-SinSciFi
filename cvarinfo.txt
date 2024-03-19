@@ -73,8 +73,10 @@ server float sinscifi_gravitysuit_suitprotection = 0.25;
 
 server int sinscifi_missile_damage = 100;
 server int sinscifi_missile_splashdamage = 50;
+server int sinscifi_missile_regenrate = 175;
 server int sinscifi_supermissile_damage = 500;
 server int sinscifi_supermissile_splashdamage = 250;
+server int sinscifi_supermissile_regenrate = 525;
 
 //	Doom
 server int sinscifi_praetorsuit_shieldingamount = 100;

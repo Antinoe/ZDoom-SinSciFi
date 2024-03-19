@@ -202,14 +202,14 @@ Class SinArmCannon : SinWeapon{
 		If(missileRegenRate <= 0 && missileAmount<missileMaxAmount){
 			missileAmount++;
 			SwitchAmmo();
-			missileRegenRate = 175;
+			missileRegenRate = sinscifi_missile_regenrate;
 			owner.A_StartSound("supermetroid/pickupammo",CHAN_AUTO,CHANF_OVERLAP);
 			If(cvar.GetCVar('sinscifi_debug').getbool()){owner.A_Print("BUILT MISSILE",0.25);}
 		}
 		If(superMissileRegenRate <= 0 && superMissileAmount<superMissileMaxAmount){
 			superMissileAmount++;
 			SwitchAmmo();
-			superMissileRegenRate = 525;
+			superMissileRegenRate = sinscifi_supermissile_regenrate;
 			owner.A_StartSound("supermetroid/pickupammolow",CHAN_AUTO,CHANF_OVERLAP);
 			If(cvar.GetCVar('sinscifi_debug').getbool()){owner.A_Print("BUILT SUPER MISSILE",0.25);}
 		}
