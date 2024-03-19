@@ -50,7 +50,7 @@ OptionMenu "SinSciFiOptionsGeneral"{
 OptionMenu "SinSciFiSkulls"{
 	StaticText "Skulls are gameplay modifiers."
 	StaticText ""
-	Option "Streaking","sinscifi_skull_streaking","OnOff"
+	Option "Streaking","shielding_skull_streaking","OnOff"
 	StaticText "Your shielding slowly decays over time,"
 	StaticText "but an eighth of the damage you deal will be transfered to it."
 	StaticText "$SINOPT_DEFOFF",1

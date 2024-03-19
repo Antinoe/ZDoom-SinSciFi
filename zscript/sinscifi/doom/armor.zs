@@ -18,6 +18,7 @@ Class PowerPraetorSuit : PowerShielding{
 		PowerShielding.ChargeSound "halo3/shieldcharge";
 	}
 	Override void PostBeginPlay(){
+		shieldingSiphon = 1;
 		shieldingAmount = sinscifi_praetorsuit_shieldingamount;
 		shieldingMaxAmount = sinscifi_praetorsuit_shieldingmaxamount;
 		shieldingRegenDelay = sinscifi_praetorsuit_shieldingregendelay;

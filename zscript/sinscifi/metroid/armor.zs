@@ -40,6 +40,7 @@ Class PowerPowerSuit : PowerShielding{
 		PowerShielding.ChargeSound "halo3/shieldcharge";
 	}
 	Override void PostBeginPlay(){
+		shieldingSiphon = 1;
 		shieldingAmount = sinscifi_powersuit_shieldingamount;
 		shieldingMaxAmount = sinscifi_powersuit_shieldingmaxamount;
 		shieldingRegenDelay = sinscifi_powersuit_shieldingregendelay;
@@ -61,6 +62,7 @@ Class PowerVariaSuit : PowerShielding{
 		PowerShielding.ChargeSound "halo3/shieldcharge";
 	}
 	Override void PostBeginPlay(){
+		shieldingSiphon = 1;
 		shieldingAmount = sinscifi_variasuit_shieldingamount;
 		shieldingMaxAmount = sinscifi_variasuit_shieldingmaxamount;
 		shieldingRegenDelay = sinscifi_variasuit_shieldingregendelay;
@@ -86,6 +88,7 @@ Class PowerGravitySuit : PowerShielding{
 		PowerShielding.ChargeSound "halo3/shieldcharge";
 	}
 	Override void PostBeginPlay(){
+		shieldingSiphon = 1;
 		shieldingAmount = sinscifi_gravitysuit_shieldingamount;
 		shieldingMaxAmount = sinscifi_gravitysuit_shieldingmaxamount;
 		shieldingRegenDelay = sinscifi_gravitysuit_shieldingregendelay;
