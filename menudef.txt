@@ -119,7 +119,7 @@ OptionMenu "SinSciFiOptionsHalo"{
 	StaticText "(Default: 100,100,35,1,1,0.5,0.5)"
 }
 OptionMenu "SinSciFiOptionsMetroid"{
-	Title "Metroid Armor Options"
+	Title "Metroid Options"
 	StaticText ""
 	StaticText "POWER SUIT"
 	Slider "Shielding","sinscifi_powersuit_shieldingamount",100,4000,100,0
@@ -131,7 +131,7 @@ OptionMenu "SinSciFiOptionsMetroid"{
 	//Slider "Suit Protection","sinscifi_powersuit_suitprotection",0.1,1.0,0.05,0
 	TextField "Shielding Protection","sinscifi_powersuit_shieldingprotection"
 	TextField "Suit Protection","sinscifi_powersuit_suitprotection"
-	StaticText "(Default: 500,500,280,1,5,0.75,0.25)"
+	StaticText "(Default: 500,500,280,1,5,0.8,0.25)"
 	StaticText ""
 	StaticText "VARIA SUIT"
 	Slider "Shielding","sinscifi_variasuit_shieldingamount",100,4000,100,0
@@ -143,7 +143,7 @@ OptionMenu "SinSciFiOptionsMetroid"{
 	//Slider "Suit Protection","sinscifi_variasuit_suitprotection",0.1,1.0,0.05,0
 	TextField "Shielding Protection","sinscifi_variasuit_shieldingprotection"
 	TextField "Suit Protection","sinscifi_variasuit_suitprotection"
-	StaticText "(Default: 75,75,280,1,5,0.5,0.25)"
+	StaticText "(Default: 75,75,280,1,5,0.3,0.25)"
 	StaticText ""
 	StaticText "GRAVITY SUIT"
 	Slider "Shielding","sinscifi_gravitysuit_shieldingamount",100,4000,100,0
@@ -155,7 +155,19 @@ OptionMenu "SinSciFiOptionsMetroid"{
 	//Slider "Suit Protection","sinscifi_gravitysuit_suitprotection",0.1,1.0,0.05,0
 	TextField "Shielding Protection","sinscifi_gravitysuit_shieldingprotection"
 	TextField "Suit Protection","sinscifi_gravitysuit_suitprotection"
-	StaticText "(Default: 75,75,280,1,5,0.25,0.25)"
+	StaticText "(Default: 75,75,280,1,5,0.05,0.25)"
+	StaticText ""
+	StaticText "-Metroid Weapon Options-"
+	StaticText ""
+	StaticText "MISSILE"
+	Slider "Contact Damage","sinscifi_missile_damage",50,1000,50,0
+	Slider "Splash Damage","sinscifi_missile_splashdamage",50,1000,50,0
+	StaticText "(Default: 100,50)"
+	StaticText ""
+	StaticText "SUPER MISSILE"
+	Slider "Contact Damage","sinscifi_supermissile_damage",50,1000,50,0
+	Slider "Splash Damage","sinscifi_supermissile_splashdamage",50,1000,50,0
+	StaticText "(Default: 500,250)"
 }
 OptionMenu "SinSciFiOptionsDOOM"{
 	Title "DOOM Armor Options"

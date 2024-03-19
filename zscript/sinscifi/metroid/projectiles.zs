@@ -67,7 +67,7 @@ Class Missile : Rocket{
 	Default{
 		Speed 60;
 		Damage 0;
-		DamageFunction(100);
+		DamageFunction(sinscifi_missile_damage);
 		Damagetype "ExplosiveImpact";
 		SeeSound "";
 		DeathSound "";
@@ -80,7 +80,7 @@ Class Missile : Rocket{
 			Goto Death.SuperMetroid;
 		Death.SuperMetroid:
 			#### # 0{
-				A_Explode((random(50,50)));
+				A_Explode((random(sinscifi_missile_splashdamage,sinscifi_missile_splashdamage)));
 				A_StartSound("supermetroid/explosion",CHAN_AUTO,CHANF_OVERLAP);
 				A_Quake(1,3,0,500);
 			}
@@ -91,7 +91,7 @@ Class Missile : Rocket{
 Class SuperMissile : Missile{
 	Default{
 		Scale 1.25;
-		DamageFunction(500);
+		DamageFunction(sinscifi_supermissile_damage);
 		Damagetype "Explosive";
 		DeathSound "";
 	}
@@ -103,7 +103,7 @@ Class SuperMissile : Missile{
 			Goto Death.SuperMetroid;
 		Death.SuperMetroid:
 			#### # 0{
-				A_Explode((random(100,100)));
+				A_Explode((random(sinscifi_supermissile_splashdamage,sinscifi_supermissile_splashdamage)));
 				A_StartSound("supermetroid/explosionbig",CHAN_AUTO,CHANF_OVERLAP);
 				A_Quake(2,20,0,750);
 			}

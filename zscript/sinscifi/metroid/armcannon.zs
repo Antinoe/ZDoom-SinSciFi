@@ -173,9 +173,9 @@ Class SinArmCannon : SinWeapon{
 	Override void ChangeMode(SinPlayer shooter){
 		Super.ChangeMode(shooter);
 		SwitchAmmo();
-		If(firemode==0){shooter.A_Print("Beam",0.5);}
-		If(firemode==1){shooter.A_Print("Missile",0.5);}
-		If(firemode==2){shooter.A_Print("Super Missile",0.5);}
+		If(firemode==0){firetype=0;shooter.A_Print("Beam",0.5);}
+		If(firemode==1){firetype=1;shooter.A_Print("Missile",0.5);}
+		If(firemode==2){firetype=1;shooter.A_Print("Super Missile",0.5);}
 		HandleSprite();
 	}
 	//	Need to get this working.
