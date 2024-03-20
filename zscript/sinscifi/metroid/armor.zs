@@ -1,37 +1,37 @@
 
 Class SinPowerSuit : SinShielding{
 	Default{
-		Inventory.Icon "SUITX0";
+		Inventory.Icon "SUITZ0";
 		Tag "Power Suit";
 		SinItem.Description "A high-tech, customizable exoskeleton armor, equipped with advanced weaponry and protective features. The suit has a distinct design with a sleek, futuristic appearance.";
 		SinShielding.Shielding "PowerPowerSuit";
 	}
-	States{Spawn: SUIT X -1; Stop;}
+	States{Spawn: SUIT Z -1; Stop;}
 }
 Class SinVariaSuit : SinShielding{
 	Default{
-		Inventory.Icon "SUITS0";
+		Inventory.Icon "SUITX0";
 		Tag "Varia Suit";
 		Inventory.PickupMessage "Picked up the Varia Suit.";
 		SinItem.Description "The Varia Suit is an upgraded version of the Power Suit. It provides enhanced protection against extreme temperatures, allowing you to explore and withstand hazardous environments.";
 		SinShielding.Shielding "PowerVariaSuit";
 	}
-	States{Spawn: SUIT S -1; Stop;}
+	States{Spawn: SUIT X -1; Stop;}
 }
 Class SinGravitySuit : SinShielding{
 	Default{
-		Inventory.Icon "SUITS0";
+		Inventory.Icon "SUITW0";
 		Tag "Gravity Suit";
 		Inventory.PickupMessage "Picked up the Gravity Suit.";
 		SinItem.Description "The Gravity Suit is an advanced upgrade, granting the ability to move freely and navigate underwater environments without the usual restrictions. It enhances mobility and defensive capabilities, making you more versatile in diverse and challenging terrains.";
 		SinShielding.Shielding "PowerGravitySuit";
 	}
-	States{Spawn: SUIT S -1; Stop;}
+	States{Spawn: SUIT W -1; Stop;}
 }
 
 Class PowerPowerSuit : PowerShielding{
 	Default{
-		Inventory.Icon "SUITX0";
+		Inventory.Icon "SUITZ0";
 		PowerShielding.HitSound "halo3/shieldhit";
 		PowerShielding.SiphonSound "halo3/shieldsiphon";
 		PowerShielding.LowSound "halo3/shieldlow";
@@ -59,7 +59,7 @@ Class PowerPowerSuit : PowerShielding{
 }
 Class PowerVariaSuit : PowerPowerSuit{
 	Default{
-		Inventory.Icon "SUITS0";
+		Inventory.Icon "SUITX0";
 	}
 	Override void PostBeginPlay(){
 		shieldingAmount = sinscifi_variasuit_shieldingamount;
@@ -83,7 +83,7 @@ Class PowerVariaSuit : PowerPowerSuit{
 }
 Class PowerGravitySuit : PowerPowerSuit{
 	Default{
-		Inventory.Icon "SUITS0";
+		Inventory.Icon "SUITW0";
 	}
 	Override void PostBeginPlay(){
 		shieldingAmount = sinscifi_gravitysuit_shieldingamount;
