@@ -32,7 +32,7 @@ OptionMenu "SinSciFiRecipes"{
 	StaticText "SuitEnergy + Chaingun = WaveBeam"
 	StaticText "SuitEnergy + PlasmaRifle = PlasmaBeam"
 	StaticText "SuitEnergy + RocketLauncher = HyperBeam"
-	StaticText "SuitEnergy + Grenade/ProxMine = MissileTank"
+	StaticText "SuitEnergy + HighlyExplosivePowder/Grenade/ProxMine = MissileTank"
 	StaticText "SuitEnergy + MissileTankPenta = SuperMissileTank"
 	StaticText ""
 	StaticText "NOTE:"

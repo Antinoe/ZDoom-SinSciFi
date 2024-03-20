@@ -67,11 +67,17 @@ Class SinRecipeHyperBeam : SinRecipe{
 }
 Class SinRecipeMissile1 : SinRecipe{
 	Default{
-		SinRecipe.Ingredients "SinSuitEnergy", "SinGrenade";
+		SinRecipe.Ingredients "SinSuitEnergy", "SinGunpowder4";
 		SinRecipe.Result "SinMissile", 1;
 	}
 }
 Class SinRecipeMissile2 : SinRecipe{
+	Default{
+		SinRecipe.Ingredients "SinSuitEnergy", "SinGrenade";
+		SinRecipe.Result "SinMissile", 1;
+	}
+}
+Class SinRecipeMissile3 : SinRecipe{
 	Default{
 		SinRecipe.Ingredients "SinSuitEnergy", "SinProxMine";
 		SinRecipe.Result "SinMissile", 1;
