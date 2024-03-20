@@ -32,7 +32,6 @@ Class SinGravitySuit : SinShielding{
 Class PowerPowerSuit : PowerShielding{
 	Default{
 		Inventory.Icon "SUITX0";
-		PowerShielding.ShieldingRechargeable 0;
 		PowerShielding.HitSound "halo3/shieldhit";
 		PowerShielding.SiphonSound "halo3/shieldsiphon";
 		PowerShielding.LowSound "halo3/shieldlow";
@@ -40,7 +39,8 @@ Class PowerPowerSuit : PowerShielding{
 		PowerShielding.ChargeSound "halo3/shieldcharge";
 	}
 	Override void PostBeginPlay(){
-		shieldingSiphon = 1;
+		If(cvar.GetCVar('sinscifi_metroid_recharge').getbool()){shieldingRechargeable=1;}Else{shieldingRechargeable=0;}
+		If(cvar.GetCVar('sinscifi_metroid_siphon').getbool()){shieldingSiphon=1;}Else{shieldingSiphon=0;}
 		shieldingAmount = sinscifi_powersuit_shieldingamount;
 		shieldingMaxAmount = sinscifi_powersuit_shieldingmaxamount;
 		shieldingRegenDelay = sinscifi_powersuit_shieldingregendelay;
@@ -50,19 +50,18 @@ Class PowerPowerSuit : PowerShielding{
 		suitProtection = sinscifi_powersuit_suitprotection;
 		Super.PostBeginPlay();
 	}
+	Override void DoEffect(){
+		If(owner){
+			//	Holding +ZOOM will concentrate to restore Missiles and Shielding.
+		}
+		Super.DoEffect();
+	}
 }
-Class PowerVariaSuit : PowerShielding{
+Class PowerVariaSuit : PowerPowerSuit{
 	Default{
 		Inventory.Icon "SUITS0";
-		PowerShielding.ShieldingRechargeable 0;
-		PowerShielding.HitSound "halo3/shieldhit";
-		PowerShielding.SiphonSound "halo3/shieldsiphon";
-		PowerShielding.LowSound "halo3/shieldlow";
-		PowerShielding.DepletedSound "halo3/shielddepleted";
-		PowerShielding.ChargeSound "halo3/shieldcharge";
 	}
 	Override void PostBeginPlay(){
-		shieldingSiphon = 1;
 		shieldingAmount = sinscifi_variasuit_shieldingamount;
 		shieldingMaxAmount = sinscifi_variasuit_shieldingmaxamount;
 		shieldingRegenDelay = sinscifi_variasuit_shieldingregendelay;
@@ -72,23 +71,21 @@ Class PowerVariaSuit : PowerShielding{
 		suitProtection = sinscifi_variasuit_suitprotection;
 		Super.PostBeginPlay();
 	}
+	//	Doesn't work yet.
+	Override void ModifyDamage (int damage, Name damageType, out int newdamage, bool passive, Actor inflictor, Actor source, int flags){
+		If(damageType=="Slime"||damageType=="Fire"){newdamage=0;}
+		Super.ModifyDamage(damage,damageType,newdamage,passive,inflictor,source,flags);
+	}
 	Override void AbsorbDamage(int damage, Name damageType, out int newdamage, Actor inflictor, Actor source, int flags){
 		If(damageType=="Slime"||damageType=="Fire"){newdamage=0;}
 		//Super.AbsorbDamage(damage,damageType,newdamage,inflictor,source,flags);
 	}
 }
-Class PowerGravitySuit : PowerShielding{
+Class PowerGravitySuit : PowerPowerSuit{
 	Default{
 		Inventory.Icon "SUITS0";
-		PowerShielding.ShieldingRechargeable 0;
-		PowerShielding.HitSound "halo3/shieldhit";
-		PowerShielding.SiphonSound "halo3/shieldsiphon";
-		PowerShielding.LowSound "halo3/shieldlow";
-		PowerShielding.DepletedSound "halo3/shielddepleted";
-		PowerShielding.ChargeSound "halo3/shieldcharge";
 	}
 	Override void PostBeginPlay(){
-		shieldingSiphon = 1;
 		shieldingAmount = sinscifi_gravitysuit_shieldingamount;
 		shieldingMaxAmount = sinscifi_gravitysuit_shieldingmaxamount;
 		shieldingRegenDelay = sinscifi_gravitysuit_shieldingregendelay;
@@ -96,7 +93,13 @@ Class PowerGravitySuit : PowerShielding{
 		shieldingRegenAmount = sinscifi_gravitysuit_shieldingregenamount;
 		shieldingProtection = sinscifi_gravitysuit_shieldingprotection;
 		suitProtection = sinscifi_gravitysuit_suitprotection;
+		//	Not finished yet.
+		//GiveInventory("PowerScrewAttack",1);
 		Super.PostBeginPlay();
+	}
+	Override void ModifyDamage (int damage, Name damageType, out int newdamage, bool passive, Actor inflictor, Actor source, int flags){
+		If(damageType=="Slime"||damageType=="Fire"||damageType=="Lava"||damageType=="Acid"){newdamage=0;}
+		Super.ModifyDamage(damage,damageType,newdamage,passive,inflictor,source,flags);
 	}
 	Override void AbsorbDamage(int damage, Name damageType, out int newdamage, Actor inflictor, Actor source, int flags){
 		If(damageType=="Slime"||damageType=="Fire"||damageType=="Lava"||damageType=="Acid"){newdamage=0;}

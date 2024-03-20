@@ -3,6 +3,7 @@ const powerDam = 20;
 const iceDam = 10;
 const waveDam = 30;
 const plasmaDam = 130;
+const hyperDam = 1000;
 Class PowerBeamBase : PlasmaBall{
 	Default{
 		Projectile;
@@ -62,6 +63,7 @@ Class IceWaveBeam : IceBeam{Default{+RIPPER;DamageFunction(powerDam+iceDam+waveD
 Class PlasmaWaveBeam : PlasmaBeam{Default{DamageFunction(powerDam+plasmaDam+waveDam);}}
 Class PlasmaIceBeam : IceBeam{Default{+RIPPER;DamageFunction(powerDam+plasmaDam+iceDam);}}
 Class PlasmaIceWaveBeam : IceBeam{Default{+RIPPER;DamageFunction(powerDam+plasmaDam+iceDam+waveDam);}}
+Class HyperBeam : PowerBeamBase{Default{+RIPPER;DamageFunction(hyperDam);Damagetype "Plasma";}}
 
 Class Missile : Rocket{
 	Default{

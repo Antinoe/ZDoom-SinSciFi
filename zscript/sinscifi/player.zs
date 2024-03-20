@@ -66,9 +66,9 @@ Class SinPlayerHunter : SinPlayer{
 }
 Class SinLoadoutHunter : SinLoadout{
 	Default{
-		DropItem "SinArmCannon1",256,0;
-		DropItem "SinPowerSuit",256,9999;
-		DropItem "SinSuitEnergy",256,100;
+		DropItem "SinArmCannon1",256,1;
+		DropItem "SinPowerSuit",256,1;
+		DropItem "SinSuitEnergy",256,1;
 		//DropItem "SinVariaSuit",256,9999;
 		//DropItem "SinGravitySuit",256,9999;
 		//DropItem "SinMissileTri",256,0;

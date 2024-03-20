@@ -62,6 +62,18 @@ Class SinPlasmaBeam : SinAttachment{
 	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.plasma=1;}
 	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.plasma=0;}
 }
+Class SinHyperBeam : SinAttachment{
+	Default{
+		Inventory.Icon "SMUPA0";
+		Tag "Hyper Beam";
+		Inventory.PickupMessage "Picked up the Hyper Beam module.";
+		SinAttachment.AttachTo "SinArmCannon";
+		SinItem.Description "A devastating upgradee that rips through almost anything.";
+	}
+	States{Spawn: SMUP AB 3; Loop;}
+	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.hyper=1;}
+	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.hyper=0;}
+}
 //
 //	Missiles
 //
@@ -201,3 +213,18 @@ Class SinRecipeSuperMissileHepta : SinRecipe{Default{SinRecipe.Ingredients "SinS
 Class SinRecipeSuperMissileOcta : SinRecipe{Default{SinRecipe.Ingredients "SinSuperMissileHepta", "SinSuperMissile";SinRecipe.Result "SinSuperMissileOcta",1;}}
 Class SinRecipeSuperMissileNona : SinRecipe{Default{SinRecipe.Ingredients "SinSuperMissileOcta", "SinSuperMissile";SinRecipe.Result "SinSuperMissileNona",1;}}
 Class SinRecipeSuperMissileDeca : SinRecipe{Default{SinRecipe.Ingredients "SinSuperMissileNona", "SinSuperMissile";SinRecipe.Result "SinSuperMissileDeca",1;}}
+
+//
+//	Suit Upgrades
+//
+Class PowerScrewAttack : PowerProtection{
+	bool flipping;
+	Default{
+		Inventory.Icon "SMUPA0";
+	}
+	States{Spawn: SMUP AB 3; Loop;}
+	Override void PostBeginPlay(){flipping=false;}
+	Override void DoEffect(){
+		//If(owner.cmd.buttons&BT_JUMP){}
+	}
+}

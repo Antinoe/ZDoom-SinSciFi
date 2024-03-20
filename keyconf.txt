@@ -1,3 +1,4 @@
 
 //	Not finished yet.
 Alias sinscifi_reset "ResetCvar sinscifi_mjolnirmark5_shielding; ResetCvar sinscifi_mjolnirmark5_maxshielding"
+Alias sinscifi_metroid_preset_sm "sinscifi_"

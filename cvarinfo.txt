@@ -47,6 +47,12 @@ server float sinscifi_mjolnirgen3_shieldingprotection = 0.5;
 server float sinscifi_mjolnirgen3_suitprotection = 0.5;
 
 //	Metroid
+
+server bool sinscifi_metroid_recharge = false;
+server bool sinscifi_metroid_siphon = true;
+server bool sinscifi_metroid_concentration = false;
+server bool sinscifi_metroid_heat = false;
+
 server int sinscifi_powersuit_shieldingamount = 500;
 server int sinscifi_powersuit_shieldingmaxamount = 500;
 server int sinscifi_powersuit_shieldingregendelay = 280;

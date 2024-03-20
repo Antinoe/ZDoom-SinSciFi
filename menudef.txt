@@ -121,6 +121,21 @@ OptionMenu "SinSciFiOptionsHalo"{
 OptionMenu "SinSciFiOptionsMetroid"{
 	Title "Metroid Options"
 	StaticText ""
+	Command "Preset: Super Metroid", "sinscifi_metroid_preset_sm"
+	Command "Preset: Eris", "sinscifi_metroid_preset_smeris"
+	Command "Preset: Metroid Fusion", "sinscifi_metroid_preset_mf"
+	Command "Preset: Other M", "sinscifi_metroid_preset_om"
+	StaticText ""
+	Option "Concentration","sinscifi_metroid_concentration","OnOff"
+	StaticText "Hold +ZOOM to regenerate shielding, similar to Other M."
+	StaticText "(Doesn't work right now.)"
+	Option "Can Siphon?","sinscifi_metroid_siphon","OnOff"
+	StaticText "Enable to allow rejuvenating your shielding by dealing damage."
+	Option "Can Recharge?","sinscifi_metroid_recharge","OnOff"
+	StaticText "Enable to recharge shields after a delay, similar to Halo shielding."
+	StaticText ""
+	StaticText "-Armor Options-"
+	StaticText ""
 	StaticText "POWER SUIT"
 	Slider "Shielding","sinscifi_powersuit_shieldingamount",100,4000,100,0
 	Slider "Max Shielding","sinscifi_powersuit_shieldingmaxamount",100,4000,100,0
@@ -157,7 +172,7 @@ OptionMenu "SinSciFiOptionsMetroid"{
 	TextField "Suit Protection","sinscifi_gravitysuit_suitprotection"
 	StaticText "(Default: 2000,2000,280,35,20,0.25,0.25)"
 	StaticText ""
-	StaticText "-Metroid Weapon Options-"
+	StaticText "-Weapon Options-"
 	StaticText ""
 	StaticText "MISSILE"
 	Slider "Contact Damage","sinscifi_missile_damage",50,1000,50,0

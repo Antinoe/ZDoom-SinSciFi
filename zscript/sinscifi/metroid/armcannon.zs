@@ -10,6 +10,7 @@ Class SinArmCannon : SinWeapon{
 	bool ice; property Ice : ice;
 	bool wave; property Wave : wave;
 	bool plasma; property Plasma : plasma;
+	bool hyper; property Hyper : hyper;
 	int heatLevel; property HeatLevel : heatLevel;
 	int missileAmount; property MissileAmount : missileAmount;
 	int missileMaxAmount; property MaxMissiles : missileMaxAmount;
@@ -66,7 +67,7 @@ Class SinArmCannon : SinWeapon{
 		If(firemode==0){
 			//	This is to ensure that, whenever the heat is over the max, the cannon will fail to fire.
 			If(heatLevel>=100){Return false;}
-			Else{HeatUp();}
+			Else{If(cvar.GetCVar('sinscifi_metroid_heat').getbool()){HeatUp();}}
 			AttackSound="supermetroid/beamshot1";
 			ammocost=0;noise=1000;spreadx=1;spready=1;multishot=1;
 			proj="PowerBeam";
@@ -82,7 +83,7 @@ Class SinArmCannon : SinWeapon{
 				proj="PlasmaBeam";
 				AttackSound="supermetroid/plasmabeamshot";
 			}
-			If(spazer){
+			If(spazer&&!hyper){
 				spreadx=2;spready=2;multishot=3;
 				AttackSound="supermetroid/spazershot";
 			}
@@ -113,6 +114,10 @@ Class SinArmCannon : SinWeapon{
 			If(spazer&&ice&&wave&&plasma){
 				proj="PlasmaIceWaveBeam";
 				AttackSound="supermetroid/icebeamshot2";
+			}
+			If(hyper){
+				proj="HyperBeam";
+				AttackSound="supermetroid/hyperbeamshot1";
 			}
 		}
 		//
