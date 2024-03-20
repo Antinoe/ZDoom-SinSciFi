@@ -43,7 +43,7 @@ Class SinRecipeSpazer : SinRecipe{
 }
 Class SinRecipeIceBeam : SinRecipe{
 	Default{
-		SinRecipe.Ingredients "SinSuitEnergy", "SinSMG";
+		SinRecipe.Ingredients "SinSuitEnergy", "SinSuperShotgun";
 		SinRecipe.Result "SinIceBeam", 1;
 	}
 }
@@ -55,7 +55,7 @@ Class SinRecipeWaveBeam : SinRecipe{
 }
 Class SinRecipePlasmaBeam : SinRecipe{
 	Default{
-		SinRecipe.Ingredients "SinSuitEnergy", "SinSuperShotgun";
+		SinRecipe.Ingredients "SinSuitEnergy", "SinPlasmaRifle";
 		SinRecipe.Result "SinPlasmaBeam", 1;
 	}
 }
