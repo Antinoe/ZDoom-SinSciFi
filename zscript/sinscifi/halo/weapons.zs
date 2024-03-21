@@ -8,7 +8,7 @@ Class SinGravityHammer : SinWeapon{
 		//Inventory.Amount 100;
 		//Inventory.MaxAmount 100;
 		Inventory.PickupMessage "Picked up a gravity hammer.";
-		SinItem.Description "This serves as a devastating melee weapon and also allows you to smash the ground for an area of effect. While swinging, projectiles are smacked around to their owners.";
+		SinItem.Description "A formidable melee weapon. It emits a shockwave upon impact, capable of sending enemies flying and causing devastating damage in close-quarters combat. Its imposing size and destructive capabilities make it a feared weapon on the battlefield, embodying the brute strength and ferocity of its wielders.";
 		SinWeapon.AmmoType "Battery";
 		SinWeapon.DefaultMagazine "SinCell";
 		SinWeapon.FireType FIRE_AUTO;
@@ -92,11 +92,11 @@ Class PowerGravityHammer : PowerProtection{
 		}
 	}
 	Override void ModifyDamage(int damage, Name damageType, out int newdamage, bool passive, Actor inflictor, Actor source, int flags){
-		//If(source && passive){newdamage=0;}
+		If(source && passive){newdamage=0;}
 		//Return Super.ModifyDamage(damage,damageType,newdamage,passive,inflictor,source,flags);
 	}
 	Override void AbsorbDamage(int damage, Name damageType, out int newdamage, Actor inflictor, Actor source, int flags){
-		If(source && inflictor){newdamage=0;}
+		//If(source && inflictor){newdamage=0;}
 		//Return Super.AbsorbDamage(damage,damageType,newdamage,inflictor,source,flags);
 	}
 }
