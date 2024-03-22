@@ -21,15 +21,12 @@ Class SinGravityHammer : SinWeapon{
 	}
 	States{Spawn: LAUN A -1; Stop;}
 	Override void HandleSprite(int status){cursprite=spawnstate.sprite;}
-	/*
 	Override bool WeaponPreFire(SinPlayer shooter, SinHands gun){
-		If(Amount>0){}
+		If(Amount>0){shooter.GiveInventory("PowerGravityHammer",1);}
 		Return Super.WeaponPreFire(shooter,gun);
 	}
-	*/
 	Override void WeaponFire(SinPlayer shooter, SinHands gun){
 		//weaponTimer=25;
-		shooter.GiveInventory("PowerGravityHammer",1);
 		shooter.A_StartSound("halo3/weapons/gravityhammer/hammermelee",CHAN_AUTO,CHANF_OVERLAP);
 	}
 	/*
@@ -79,6 +76,7 @@ Class SinGravityHammerProjectile : Actor{
 Class PowerGravityHammer : PowerProtection{
 	Default{
 		Inventory.Icon "MEGAA0";
+		+INVENTORY.ADDITIVETIME;
 		Powerup.Duration 15;
 		//	Couldn't give it an infinite duration just yet, but that's okay.
 		//Powerup.Duration 0x7FFFFFFF;
