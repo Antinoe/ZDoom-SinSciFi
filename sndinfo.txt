@@ -2,7 +2,6 @@
 //
 //	Super Metroid
 //
-
 supermetroid/switch "sounds/supermetroid/AmmoSelect.wav"
 supermetroid/missileshot "sounds/supermetroid/AmmoMissileShot.wav"
 supermetroid/supermissileshot "sounds/supermetroid/AmmoSuperMissileShot.wav"
@@ -33,11 +32,47 @@ supermetroid/impactlow2 "sounds/supermetroid/ImpactLow2.wav"
 //
 //	Halo 3
 //
-
-halo3/shieldhit "sounds/halo3/shieldhit.wav"
-halo3/shieldsiphon "sounds/halo3/shieldhit.wav"
+halo3/shieldhit "sounds/halo3/ShieldHit.wav"
+halo3/shieldsiphon "sounds/halo3/ShieldHit.wav"
 $pitchset halo3/shieldsiphon 0.75;
 $volume halo3/shieldsiphon 1;
-halo3/shieldlow "sounds/halo3/shieldlow.wav"
-halo3/shielddepleted "sounds/halo3/shielddepleted.wav"
-halo3/shieldcharge "sounds/halo3/shieldcharge.wav"
+halo3/shieldlow "sounds/halo3/ShieldLow.wav"
+halo3/shielddepleted "sounds/halo3/ShieldDeplated.wav"
+halo3/shieldcharge "sounds/halo3/ShieldCharge.wav"
+//	Weapons
+halo3/weapons/gravityhammer/hammerhit1 "sounds/halo3/weapons/gravityhammer/HammerHit1.wav"
+halo3/weapons/gravityhammer/hammerhit2 "sounds/halo3/weapons/gravityhammer/HammerHit2.wav"
+halo3/weapons/gravityhammer/hammerhit3 "sounds/halo3/weapons/gravityhammer/HammerHit3.wav"
+$random halo3/weapons/gravityhammer/hammerhit
+{
+	halo3/weapons/gravityhammer/hammerhit1
+	halo3/weapons/gravityhammer/hammerhit2
+	halo3/weapons/gravityhammer/hammerhit3
+}
+halo3/weapons/gravityhammer/hammermelee1 "sounds/halo3/weapons/gravityhammer/HammerMelee1.wav"
+halo3/weapons/gravityhammer/hammermelee2 "sounds/halo3/weapons/gravityhammer/HammerMelee2.wav"
+halo3/weapons/gravityhammer/hammermelee3 "sounds/halo3/weapons/gravityhammer/HammerMelee3.wav"
+$random halo3/weapons/gravityhammer/hammermelee
+{
+	halo3/weapons/gravityhammer/hammermelee1
+	halo3/weapons/gravityhammer/hammermelee2
+	halo3/weapons/gravityhammer/hammermelee3
+}
+halo3/weapons/gravityhammer/hammerposing1 "sounds/halo3/weapons/gravityhammer/HammerPosing1.wav"
+halo3/weapons/gravityhammer/hammerposing2 "sounds/halo3/weapons/gravityhammer/HammerPosing2.wav"
+halo3/weapons/gravityhammer/hammerposing3 "sounds/halo3/weapons/gravityhammer/HammerPosing3.wav"
+$random halo3/weapons/gravityhammer/hammerposing
+{
+	halo3/weapons/gravityhammer/hammerposing1
+	halo3/weapons/gravityhammer/hammerposing2
+	halo3/weapons/gravityhammer/hammerposing3
+}
+halo3/weapons/gravityhammer/hammerready1 "sounds/halo3/weapons/gravityhammer/HammerReady1.wav"
+halo3/weapons/gravityhammer/hammerready2 "sounds/halo3/weapons/gravityhammer/HammerReady2.wav"
+halo3/weapons/gravityhammer/hammerready3 "sounds/halo3/weapons/gravityhammer/HammerReady3.wav"
+$random halo3/weapons/gravityhammer/hammerready
+{
+	halo3/weapons/gravityhammer/hammerready1
+	halo3/weapons/gravityhammer/hammerready2
+	halo3/weapons/gravityhammer/hammerready3
+}

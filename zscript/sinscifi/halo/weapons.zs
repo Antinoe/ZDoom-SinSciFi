@@ -21,12 +21,16 @@ Class SinGravityHammer : SinWeapon{
 	}
 	States{Spawn: LAUN A -1; Stop;}
 	Override void HandleSprite(int status){cursprite=spawnstate.sprite;}
+	/*
 	Override bool WeaponPreFire(SinPlayer shooter, SinHands gun){
-		If(Amount>0){shooter.GiveInventory("PowerGravityHammer",1);}
+		If(Amount>0){}
 		Return Super.WeaponPreFire(shooter,gun);
 	}
+	*/
 	Override void WeaponFire(SinPlayer shooter, SinHands gun){
 		//weaponTimer=25;
+		shooter.GiveInventory("PowerGravityHammer",1);
+		shooter.A_StartSound("halo3/weapons/gravityhammer/hammermelee",CHAN_AUTO,CHANF_OVERLAP);
 	}
 	/*
 	Override void DoEffect(){
@@ -57,17 +61,18 @@ Class SinGravityHammerProjectile : Actor{
 	}
 	States{
 		Spawn:
-			MISL A 5 Bright;
+			//MISL A 5 Bright;
+			#### # 5 Bright;
 			Stop;
 		Death:
 			Goto Death.Hit;
 		Death.Hit:
 			#### # 0{
 				A_Explode((random(150,150)));
-				A_StartSound("supermetroid/explosion",CHAN_AUTO,CHANF_OVERLAP);
+				A_StartSound("halo3/weapons/gravityhammer/hammerhit",CHAN_AUTO,CHANF_OVERLAP);
 				A_Quake(2,20,0,500);
 			}
-			MISL BCD 5 Bright;
+			MISL BCD 3 Bright;
 			Stop;
 	}
 }
@@ -75,12 +80,15 @@ Class PowerGravityHammer : PowerProtection{
 	Default{
 		Inventory.Icon "MEGAA0";
 		Powerup.Duration 15;
+		//	Couldn't give it an infinite duration just yet, but that's okay.
 		//Powerup.Duration 0x7FFFFFFF;
 	}
 	Override void PostBeginPlay(){}
 	Override void InitEffect(){
 		If(owner){
+			//	These properties make projectiles bounce off of the actor.
 			owner.bReflective=true;
+			//	This ensures the projectiles always bounce in the direction of the attacker.
 			owner.bAimReflect=true;
 		}
 	}
@@ -95,44 +103,10 @@ Class PowerGravityHammer : PowerProtection{
 		If(source && passive){newdamage=0;}
 		//Return Super.ModifyDamage(damage,damageType,newdamage,passive,inflictor,source,flags);
 	}
+	/*
 	Override void AbsorbDamage(int damage, Name damageType, out int newdamage, Actor inflictor, Actor source, int flags){
 		//If(source && inflictor){newdamage=0;}
 		//Return Super.AbsorbDamage(damage,damageType,newdamage,inflictor,source,flags);
 	}
+	*/
 }
-
-/*
-class Rocket : Actor
-{
-	Default
-	{
-		Radius 11;
-		Height 8;
-		Speed 20;
-		Damage 20;
-		Projectile;
-		+RANDOMIZE
-		+DEHEXPLOSION
-		+ROCKETTRAIL
-		+ZDOOMTRANS
-		SeeSound "weapons/rocklf";
-		DeathSound "weapons/rocklx";
-		Obituary "$OB_MPROCKET";
-	}
-	States
-	{
-	Spawn:
-		MISL A 1 Bright;
-		Loop;
-	Death:
-		MISL B 8 Bright A_Explode;
-		MISL C 6 Bright;
-		MISL D 4 Bright;
-		Stop;
-	BrainExplode:
-		MISL BC 10 Bright;
-		MISL D 10 A_BrainExplode;
-		Stop;
-	}
-}
-*/
