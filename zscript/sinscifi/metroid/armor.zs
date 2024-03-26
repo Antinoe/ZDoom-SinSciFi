@@ -39,6 +39,7 @@ Class PowerPowerSuit : PowerShielding{
 		PowerShielding.ChargeSound "halo3/shieldcharge";
 	}
 	Override void PostBeginPlay(){
+		Super.PostBeginPlay();
 		If(cvar.GetCVar('sinscifi_metroid_recharge').getbool()){shieldingRechargeable=1;}Else{shieldingRechargeable=0;}
 		If(cvar.GetCVar('sinscifi_metroid_siphon').getbool()){shieldingSiphon=1;}Else{shieldingSiphon=0;}
 		shieldingAmount = sinscifi_powersuit_shieldingamount;
@@ -48,7 +49,6 @@ Class PowerPowerSuit : PowerShielding{
 		shieldingRegenAmount = sinscifi_powersuit_shieldingregenamount;
 		shieldingProtection = sinscifi_powersuit_shieldingprotection;
 		suitProtection = sinscifi_powersuit_suitprotection;
-		Super.PostBeginPlay();
 	}
 	Override void DoEffect(){
 		If(owner){
@@ -62,6 +62,7 @@ Class PowerVariaSuit : PowerPowerSuit{
 		Inventory.Icon "SUITX0";
 	}
 	Override void PostBeginPlay(){
+		Super.PostBeginPlay();
 		shieldingAmount = sinscifi_variasuit_shieldingamount;
 		shieldingMaxAmount = sinscifi_variasuit_shieldingmaxamount;
 		shieldingRegenDelay = sinscifi_variasuit_shieldingregendelay;
@@ -69,7 +70,6 @@ Class PowerVariaSuit : PowerPowerSuit{
 		shieldingRegenAmount = sinscifi_variasuit_shieldingregenamount;
 		shieldingProtection = sinscifi_variasuit_shieldingprotection;
 		suitProtection = sinscifi_variasuit_suitprotection;
-		Super.PostBeginPlay();
 	}
 	//	Doesn't work yet.
 	Override void ModifyDamage (int damage, Name damageType, out int newdamage, bool passive, Actor inflictor, Actor source, int flags){
@@ -86,6 +86,7 @@ Class PowerGravitySuit : PowerPowerSuit{
 		Inventory.Icon "SUITW0";
 	}
 	Override void PostBeginPlay(){
+		Super.PostBeginPlay();
 		shieldingAmount = sinscifi_gravitysuit_shieldingamount;
 		shieldingMaxAmount = sinscifi_gravitysuit_shieldingmaxamount;
 		shieldingRegenDelay = sinscifi_gravitysuit_shieldingregendelay;
@@ -95,7 +96,6 @@ Class PowerGravitySuit : PowerPowerSuit{
 		suitProtection = sinscifi_gravitysuit_suitprotection;
 		//	Not finished yet.
 		//GiveInventory("PowerScrewAttack",1);
-		Super.PostBeginPlay();
 	}
 	Override void ModifyDamage (int damage, Name damageType, out int newdamage, bool passive, Actor inflictor, Actor source, int flags){
 		If(damageType=="Slime"||damageType=="Fire"||damageType=="Lava"||damageType=="Acid"){newdamage=0;}

@@ -1,6 +1,7 @@
 
 Class SinGravityHammer : SinWeapon{
 	//int weaponTimer;
+	int swingTimer;
 	//const weaponCooldown = 25;
 	Default{
 		Inventory.Icon "LAUNA0";

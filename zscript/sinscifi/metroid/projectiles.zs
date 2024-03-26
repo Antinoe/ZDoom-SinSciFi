@@ -54,7 +54,7 @@ Class IceBeam : PowerBeamBase{
 			Stop;
 	}
 }
-Class WaveBeam : PowerBeamBase{Default{+RIPPER;DamageFunction(powerDam+waveDam);Damagetype "Plasma";}}
+Class WaveBeam : PowerBeamBase{Default{+RIPPER;DamageFunction(powerDam+waveDam);Damagetype "Minigun";}}
 Class PlasmaBeam : PowerBeamBase{Default{+RIPPER;DamageFunction(powerDam+plasmaDam);Damagetype "Plasma";}}
 //
 //	Mixed Beams
