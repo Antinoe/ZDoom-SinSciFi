@@ -2,6 +2,7 @@ version "4.0"
 
 #include "zscript/sinscifi/player.zs"
 #include "zscript/sinscifi/doom/armor.zs"
+#include "zscript/sinscifi/doom/weapons.zs"
 #include "zscript/sinscifi/halo/armor.zs"
 #include "zscript/sinscifi/halo/weapons.zs"
 #include "zscript/sinscifi/metroid/armcannon.zs"
@@ -12,6 +13,10 @@ version "4.0"
 #include "zscript/sinscifi/metroid/recipes.zs"
 #include "zscript/sinscifi/metroid/cheats.zs"
 
+Class PowerAuxilurySpeed : PowerSpeed{Default{Powerup.Duration 0x7FFFFFFF;Powerup.Strength 10;}}
+//	PowerHighJump doesn't actually work.. I have no idea why,
+//	other than the possibility that it's still being worked on.
+Class PowerAuxiluryJump : PowerHighJump{Default{Powerup.Duration 0x7FFFFFFF;Powerup.Strength 2;}}
 Class SinShielding : SinTool{
 	string shielding; property Shielding : shielding;
 	int delta;
@@ -55,7 +60,6 @@ Class SinShielding : SinTool{
 		HandleSprite();
 	}
 }
-
 Class SciFiEventHandler : EventHandler{
 	/*
 	int armorRepairDelay;
@@ -80,3 +84,4 @@ Class SciFiEventHandler : EventHandler{
 	}
 	*/
 }
+	

@@ -32,6 +32,9 @@ Class SinGravitySuit : SinShielding{
 Class PowerPowerSuit : PowerShielding{
 	Default{
 		Inventory.Icon "SUITZ0";
+		//	Can't get colors working, for some reason..
+		//Powerup.Color 0, 255, 0, 0.125;
+		//Powerup.Color "ff ff ff", 0.2;
 		PowerShielding.HitSound "halo3/shieldhit";
 		PowerShielding.SiphonSound "halo3/shieldsiphon";
 		PowerShielding.LowSound "halo3/shieldlow";
@@ -49,12 +52,25 @@ Class PowerPowerSuit : PowerShielding{
 		shieldingRegenAmount = sinscifi_powersuit_shieldingregenamount;
 		shieldingProtection = sinscifi_powersuit_shieldingprotection;
 		suitProtection = sinscifi_powersuit_suitprotection;
+		owner.A_SetBlend("White",1,105,"Yellow",0);
+	}
+	Override void InitEffect(){
+		If(owner){
+			owner.GiveInventory("PowerAuxilurySpeed",1);
+			owner.GiveInventory("PowerAuxiluryJump",1);
+		}
 	}
 	Override void DoEffect(){
+		Super.DoEffect();
 		If(owner){
 			//	Holding +ZOOM will concentrate to restore Missiles and Shielding.
 		}
-		Super.DoEffect();
+	}
+	Override void EndEffect(){
+		If(owner){
+			owner.TakeInventory("PowerAuxilurySpeed",1);
+			owner.TakeInventory("PowerAuxiluryJump",1);
+		}
 	}
 }
 Class PowerVariaSuit : PowerPowerSuit{
@@ -70,10 +86,11 @@ Class PowerVariaSuit : PowerPowerSuit{
 		shieldingRegenAmount = sinscifi_variasuit_shieldingregenamount;
 		shieldingProtection = sinscifi_variasuit_shieldingprotection;
 		suitProtection = sinscifi_variasuit_suitprotection;
+		owner.A_SetBlend("White",1,105,"Orange",0);
 	}
 	//	Doesn't work yet.
 	Override void ModifyDamage (int damage, Name damageType, out int newdamage, bool passive, Actor inflictor, Actor source, int flags){
-		If(damageType=="Slime"||damageType=="Fire"){newdamage=0;}
+		//If(damageType=="Slime"||damageType=="Fire"){newdamage=0;}
 		Super.ModifyDamage(damage,damageType,newdamage,passive,inflictor,source,flags);
 	}
 	Override void AbsorbDamage(int damage, Name damageType, out int newdamage, Actor inflictor, Actor source, int flags){
@@ -94,6 +111,7 @@ Class PowerGravitySuit : PowerPowerSuit{
 		shieldingRegenAmount = sinscifi_gravitysuit_shieldingregenamount;
 		shieldingProtection = sinscifi_gravitysuit_shieldingprotection;
 		suitProtection = sinscifi_gravitysuit_suitprotection;
+		owner.A_SetBlend("White",1,105,"Purple",0);
 		//	Not finished yet.
 		//GiveInventory("PowerScrewAttack",1);
 	}

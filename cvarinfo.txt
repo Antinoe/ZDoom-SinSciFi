@@ -1,5 +1,6 @@
 
 server bool sinscifi_debug = false;
+server bool sinscifi_projectile_acceleration = true;
 
 //	Halo
 server bool sinscifi_biofoaminjector = true;
@@ -77,9 +78,11 @@ server int sinscifi_gravitysuit_shieldingregenamount = 20;
 server float sinscifi_gravitysuit_shieldingprotection = 0.25;
 server float sinscifi_gravitysuit_suitprotection = 0.25;
 
+server int sinscifi_missile_tank_amount = 10;
 server int sinscifi_missile_damage = 100;
 server int sinscifi_missile_splashdamage = 50;
 server int sinscifi_missile_regenrate = 175;
+server int sinscifi_supermissile_tank_amount = 5;
 server int sinscifi_supermissile_damage = 500;
 server int sinscifi_supermissile_splashdamage = 250;
 server int sinscifi_supermissile_regenrate = 525;

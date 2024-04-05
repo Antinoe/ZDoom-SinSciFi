@@ -14,7 +14,7 @@ Class SinArmCannon1 : SinArmCannon{
 		SinArmCannon.BallisticPower 1;
 	}
 }
-Class SinArmCannon2 : SinArmCannon{
+Class SinArmCannon2 : SinArmCannon1{
 	Default{
 		SinArmCannon.MaxMissiles 50;
 		SinArmCannon.MaxSuperMissiles 5;
@@ -22,12 +22,12 @@ Class SinArmCannon2 : SinArmCannon{
 		SinArmCannon.Spazer 1;
 	}
 	Override void PostBeginPlay(){
+		Super.PostBeginPlay();
 		missileAmount=50;
 		superMissileAmount=5;
-		Super.PostBeginPlay();
 	}
 }
-Class SinArmCannon3 : SinArmCannon{
+Class SinArmCannon3 : SinArmCannon1{
 	Default{
 		SinArmCannon.MaxMissiles 125;
 		SinArmCannon.MaxSuperMissiles 25;
@@ -36,12 +36,12 @@ Class SinArmCannon3 : SinArmCannon{
 		SinArmCannon.Wave 1;
 	}
 	Override void PostBeginPlay(){
+		Super.PostBeginPlay();
 		missileAmount=125;
 		superMissileAmount=25;
-		Super.PostBeginPlay();
 	}
 }
-Class SinArmCannon4 : SinArmCannon{
+Class SinArmCannon4 : SinArmCannon1{
 	Default{
 		//SinArmCannon.EnergyTanks 20;
 		SinArmCannon.MaxMissiles 250;
@@ -54,8 +54,8 @@ Class SinArmCannon4 : SinArmCannon{
 		SinArmCannon.BallisticPower 2;
 	}
 	Override void PostBeginPlay(){
+		Super.PostBeginPlay();
 		missileAmount=250;
 		superMissileAmount=50;
-		Super.PostBeginPlay();
 	}
 }

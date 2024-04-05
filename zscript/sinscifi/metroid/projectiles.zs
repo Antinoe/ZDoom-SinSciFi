@@ -20,6 +20,10 @@ Class PowerBeamBase : PlasmaBall{
 		DamageFunction(powerDam);
 		Damagetype "Minigun";
 	}
+	Override void Tick(){
+		Super.Tick();
+		If(sinscifi_projectile_acceleration){vel*=1.05;}
+	}
 	States{
 		Spawn:
 			SMX1 A 1 Bright;
@@ -74,6 +78,10 @@ Class Missile : Rocket{
 		SeeSound "";
 		DeathSound "";
 	}
+	Override void Tick(){
+		Super.Tick();
+		If(sinscifi_projectile_acceleration){vel*=1.05;}
+	}
 	States{
 		Spawn:
 			PMSL A 1 Bright;
@@ -96,6 +104,10 @@ Class SuperMissile : Missile{
 		DamageFunction(sinscifi_supermissile_damage);
 		Damagetype "Explosive";
 		DeathSound "";
+	}
+	Override void Tick(){
+		Super.Tick();
+		vel*=1.15;
 	}
 	States{
 		Spawn:

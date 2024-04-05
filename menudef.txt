@@ -47,6 +47,9 @@ OptionMenu "SinSciFiOptionsGeneral"{
 	Option "Debug Messages","sinscifi_debug","OnOff"
 	StaticText "Enables debug messages for, well, debugging."
 	StaticText "$SINOPT_DEFOFF",1
+	Option "Projectile Acceleration","sinscifi_projectile_acceleration","OnOff"
+	StaticText "The velocity of certain projectiles will increase with time."
+	StaticText "$SINOPT_DEFON",1
 }
 OptionMenu "SinSciFiSkulls"{
 	StaticText "Skulls are gameplay modifiers."
@@ -176,28 +179,30 @@ OptionMenu "SinSciFiOptionsMetroid"{
 	StaticText "-Weapon Options-"
 	StaticText ""
 	StaticText "MISSILE"
+	Slider "Expansion Amount","sinscifi_missile_tank_amount",1,50,1,0
 	Slider "Contact Damage","sinscifi_missile_damage",50,1000,50,0
 	Slider "Splash Damage","sinscifi_missile_splashdamage",50,1000,50,0
 	Slider "Regen Rate","sinscifi_missile_regenrate",35,525,35,0
-	StaticText "(Default: 100,50,175)"
+	StaticText "(Default: 10,100,50,175)"
 	StaticText ""
 	StaticText "SUPER MISSILE"
+	Slider "Expansion Amount","sinscifi_supermissile_tank_amount",1,50,1,0
 	Slider "Contact Damage","sinscifi_supermissile_damage",50,1000,50,0
 	Slider "Splash Damage","sinscifi_supermissile_splashdamage",50,1000,50,0
 	Slider "Regen Rate","sinscifi_supermissile_regenrate",35,525,35,0
-	StaticText "(Default: 500,250,525)"
+	StaticText "(Default: 5,500,250,525)"
 }
 OptionMenu "SinSciFiOptionsDOOM"{
 	Title "DOOM Armor Options"
 	StaticText ""
 	StaticText "PRAETOR SUIT"
-	Slider "Shielding","sinscifi_powersuit_shieldingamount",10,200,5,0
-	Slider "Max Shielding","sinscifi_powersuit_shieldingmaxamount",10,200,5,0
-	Slider "Shielding Regen Delay","sinscifi_powersuit_shieldingregendelay",10,200,5,0
-	Slider "Shielding Regen Rate","sinscifi_powersuit_shieldingregenrate",1,35,1,0
-	Slider "Shielding Regen Amount","sinscifi_powersuit_shieldingregenamount",1,10,1,0
-	//Slider "Shielding Protection","sinscifi_powersuit_shieldingprotection",0.1,1.0,0.05,0
-	//Slider "Suit Protection","sinscifi_powersuit_suitprotection",0.1,1.0,0.05,0
+	Slider "Shielding","sinscifi_praetorsuit_shieldingamount",10,200,5,0
+	Slider "Max Shielding","sinscifi_praetorsuit_shieldingmaxamount",10,200,5,0
+	Slider "Shielding Regen Delay","sinscifi_praetorsuit_shieldingregendelay",10,200,5,0
+	Slider "Shielding Regen Rate","sinscifi_praetorsuit_shieldingregenrate",1,35,1,0
+	Slider "Shielding Regen Amount","sinscifi_praetorsuit_shieldingregenamount",1,10,1,0
+	//Slider "Shielding Protection","sinscifi_praetorsuit_shieldingprotection",0.1,1.0,0.05,0
+	//Slider "Suit Protection","sinscifi_praetorsuit_suitprotection",0.1,1.0,0.05,0
 	TextField "Shielding Protection","sinscifi_praetorsuit_shieldingprotection"
 	TextField "Suit Protection","sinscifi_praetorsuit_suitprotection"
 	StaticText "(Default: 100,100,140,1,1,0.25,0.25)"

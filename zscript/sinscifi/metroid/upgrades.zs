@@ -87,54 +87,96 @@ Class SinMissile : SinAttachment{
 		SinAttachment.AttachTo "SinArmCannon";
 	}
 	States{Spawn: SMUP KL 3; Loop;}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount+=5;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount-=5;}
+	Override void Attached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.missileAmount+=(sinscifi_missile_tank_amount*1);
+		cannon.missileMaxAmount+=(sinscifi_missile_tank_amount*1);
+	}
+	Override void Detached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.missileAmount-=(sinscifi_missile_tank_amount*1);
+		cannon.missileMaxAmount-=(sinscifi_missile_tank_amount*1);
+	}
 }
 Class SinMissileDi : SinMissile{
 	Default{Tag "Di Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount+=10;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount-=10;}
+	Override void Attached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.missileAmount+=(sinscifi_missile_tank_amount*2);
+		cannon.missileMaxAmount+=(sinscifi_missile_tank_amount*2);
+	}
+	Override void Detached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.missileAmount-=(sinscifi_missile_tank_amount*2);
+		cannon.missileMaxAmount-=(sinscifi_missile_tank_amount*2);
+	}
 }
 Class SinMissileTri : SinMissile{
 	Default{Tag "Tri Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount+=15;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount-=15;}
+	Override void Attached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.missileAmount+=(sinscifi_missile_tank_amount*3);
+		cannon.missileMaxAmount+=(sinscifi_missile_tank_amount*3);
+	}
+	Override void Detached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.missileAmount-=(sinscifi_missile_tank_amount*3);
+		cannon.missileMaxAmount-=(sinscifi_missile_tank_amount*3);
+	}
 }
 Class SinMissileTetra : SinMissile{
 	Default{Tag "Tetra Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount+=20;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount-=20;}
+	Override void Attached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.missileAmount+=(sinscifi_missile_tank_amount*4);
+		cannon.missileMaxAmount+=(sinscifi_missile_tank_amount*4);
+	}
+	Override void Detached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.missileAmount-=(sinscifi_missile_tank_amount*4);
+		cannon.missileMaxAmount-=(sinscifi_missile_tank_amount*4);
+	}
 }
 Class SinMissilePenta : SinMissile{
 	Default{Tag "Penta Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount+=25;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount-=25;}
+	Override void Attached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.missileAmount+=(sinscifi_missile_tank_amount*5);
+		cannon.missileMaxAmount+=(sinscifi_missile_tank_amount*5);
+	}
+	Override void Detached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.missileAmount-=(sinscifi_missile_tank_amount*5);
+		cannon.missileMaxAmount-=(sinscifi_missile_tank_amount*5);
+	}
 }
+/*
 Class SinMissileHexa : SinMissile{
 	Default{Tag "Hexa Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount+=30;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount-=30;}
+	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount+=(tankAmount*6);}
+	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount-=(tankAmount*6);}
 }
 Class SinMissileHepta : SinMissile{
 	Default{Tag "Hepta Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount+=35;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount-=35;}
+	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount+=(tankAmount*7);}
+	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount-=(tankAmount*7);}
 }
 Class SinMissileOcta : SinMissile{
 	Default{Tag "Octa Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount+=40;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount-=40;}
+	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount+=(tankAmount*8);}
+	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount-=(tankAmount*8);}
 }
 Class SinMissileNona : SinMissile{
 	Default{Tag "Nona Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount+=45;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount-=45;}
+	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount+=(tankAmount*9);}
+	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount-=(tankAmount*9);}
 }
 Class SinMissileDeca : SinMissile{
 	Default{Tag "Deca Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount+=50;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount-=50;}
+	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount+=(tankAmount*10);}
+	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.missileMaxAmount-=(tankAmount*10);}
 }
+*/
 //	Super Missile
 Class SinSuperMissile : SinAttachment{
 	Default{
@@ -145,74 +187,120 @@ Class SinSuperMissile : SinAttachment{
 		SinAttachment.AttachTo "SinArmCannon";
 	}
 	States{Spawn: SMUP MN 3; Loop;}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount+=5;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount-=5;}
+	Override void Attached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.superMissileAmount+=(sinscifi_supermissile_tank_amount*1);
+		cannon.superMissileMaxAmount+=(sinscifi_supermissile_tank_amount*1);
+	}
+	Override void Detached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.superMissileAmount-=(sinscifi_supermissile_tank_amount*1);
+		cannon.superMissileMaxAmount-=(sinscifi_supermissile_tank_amount*1);
+	}
 }
 Class SinSuperMissileDi : SinSuperMissile{
 	Default{Tag "Di Super Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount+=10;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount-=10;}
+	Override void Attached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.superMissileAmount+=(sinscifi_supermissile_tank_amount*2);
+		cannon.superMissileMaxAmount+=(sinscifi_supermissile_tank_amount*2);
+	}
+	Override void Detached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.superMissileAmount-=(sinscifi_supermissile_tank_amount*2);
+		cannon.superMissileMaxAmount-=(sinscifi_supermissile_tank_amount*2);
+	}
 }
 Class SinSuperMissileTri : SinSuperMissile{
 	Default{Tag "Tri Super Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount+=15;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount-=15;}
+	Override void Attached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.superMissileAmount+=(sinscifi_supermissile_tank_amount*3);
+		cannon.superMissileMaxAmount+=(sinscifi_supermissile_tank_amount*3);
+	}
+	Override void Detached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.superMissileAmount-=(sinscifi_supermissile_tank_amount*3);
+		cannon.superMissileMaxAmount-=(sinscifi_supermissile_tank_amount*3);
+	}
 }
 Class SinSuperMissileTetra : SinSuperMissile{
 	Default{Tag "Tetra Super Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount+=20;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount-=20;}
+	Override void Attached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.superMissileAmount+=(sinscifi_supermissile_tank_amount*4);
+		cannon.superMissileMaxAmount+=(sinscifi_supermissile_tank_amount*4);
+	}
+	Override void Detached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.superMissileAmount-=(sinscifi_supermissile_tank_amount*4);
+		cannon.superMissileMaxAmount-=(sinscifi_supermissile_tank_amount*4);
+	}
 }
 Class SinSuperMissilePenta : SinSuperMissile{
 	Default{Tag "Penta Super Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount+=25;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount-=25;}
+	Override void Attached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.superMissileAmount+=(sinscifi_supermissile_tank_amount*5);
+		cannon.superMissileMaxAmount+=(sinscifi_supermissile_tank_amount*5);
+	}
+	Override void Detached(SinWeapon gun){
+		let cannon=SinArmCannon(gun);
+		cannon.superMissileAmount-=(sinscifi_supermissile_tank_amount*5);
+		cannon.superMissileMaxAmount-=(sinscifi_supermissile_tank_amount*5);
+	}
 }
+/*
 Class SinSuperMissileHexa : SinSuperMissile{
 	Default{Tag "Hexa Super Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount+=30;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount-=30;}
+	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount+=(tankAmount*6);}
+	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount-=(tankAmount*6);}
 }
 Class SinSuperMissileHepta : SinSuperMissile{
 	Default{Tag "Hepta Super Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount+=35;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount-=35;}
+	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount+=(tankAmount*7);}
+	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount-=(tankAmount*7);}
 }
 Class SinSuperMissileOcta : SinSuperMissile{
 	Default{Tag "Octa Super Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount+=40;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount-=40;}
+	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount+=(tankAmount*8);}
+	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount-=(tankAmount*8);}
 }
 Class SinSuperMissileNona : SinSuperMissile{
 	Default{Tag "Nona Super Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount+=45;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount-=45;}
+	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount+=(tankAmount*9);}
+	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount-=(tankAmount*9);}
 }
 Class SinSuperMissileDeca : SinSuperMissile{
 	Default{Tag "Deca Super Missile Expansion";}
-	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount+=50;}
-	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount-=50;}
+	Override void Attached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount+=(tankAmount*10);}
+	Override void Detached(SinWeapon gun){let cannon=SinArmCannon(gun);cannon.superMissileMaxAmount-=(tankAmount*10);}
 }
+*/
 //	Missile
 Class SinRecipeMissileBi : SinRecipe{Default{SinRecipe.Ingredients "SinMissile", "SinMissile";SinRecipe.Result "SinMissileDi",1;}}
 Class SinRecipeMissileTri : SinRecipe{Default{SinRecipe.Ingredients "SinMissileDi", "SinMissile";SinRecipe.Result "SinMissileTri",1;}}
 Class SinRecipeMissileTetra : SinRecipe{Default{SinRecipe.Ingredients "SinMissileTri", "SinMissile";SinRecipe.Result "SinMissileTetra",1;}}
 Class SinRecipeMissilePenta : SinRecipe{Default{SinRecipe.Ingredients "SinMissileTetra", "SinMissile";SinRecipe.Result "SinMissilePenta",1;}}
+/*
 Class SinRecipeMissileHexa : SinRecipe{Default{SinRecipe.Ingredients "SinMissilePenta", "SinMissile";SinRecipe.Result "SinMissileHexa",1;}}
 Class SinRecipeMissileHepta : SinRecipe{Default{SinRecipe.Ingredients "SinMissileHexa", "SinMissile";SinRecipe.Result "SinMissileHepta",1;}}
 Class SinRecipeMissileOcta : SinRecipe{Default{SinRecipe.Ingredients "SinMissileHepta", "SinMissile";SinRecipe.Result "SinMissileOcta",1;}}
 Class SinRecipeMissileNona : SinRecipe{Default{SinRecipe.Ingredients "SinMissileOcta", "SinMissile";SinRecipe.Result "SinMissileNona",1;}}
 Class SinRecipeMissileDeca : SinRecipe{Default{SinRecipe.Ingredients "SinMissileNona", "SinMissile";SinRecipe.Result "SinMissileDeca",1;}}
+*/
 //	Super Missile
 Class SinRecipeSuperMissileBi : SinRecipe{Default{SinRecipe.Ingredients "SinSuperMissile", "SinSuperMissile";SinRecipe.Result "SinSuperMissileDi",1;}}
 Class SinRecipeSuperMissileTri : SinRecipe{Default{SinRecipe.Ingredients "SinSuperMissileDi", "SinSuperMissile";SinRecipe.Result "SinSuperMissileTri",1;}}
 Class SinRecipeSuperMissileTetra : SinRecipe{Default{SinRecipe.Ingredients "SinSuperMissileTri", "SinSuperMissile";SinRecipe.Result "SinSuperMissileTetra",1;}}
 Class SinRecipeSuperMissilePenta : SinRecipe{Default{SinRecipe.Ingredients "SinSuperMissileTetra", "SinSuperMissile";SinRecipe.Result "SinSuperMissilePenta",1;}}
+/*
 Class SinRecipeSuperMissileHexa : SinRecipe{Default{SinRecipe.Ingredients "SinSuperMissilePenta", "SinSuperMissile";SinRecipe.Result "SinSuperMissileHexa",1;}}
 Class SinRecipeSuperMissileHepta : SinRecipe{Default{SinRecipe.Ingredients "SinSuperMissileHexa", "SinSuperMissile";SinRecipe.Result "SinSuperMissileHepta",1;}}
 Class SinRecipeSuperMissileOcta : SinRecipe{Default{SinRecipe.Ingredients "SinSuperMissileHepta", "SinSuperMissile";SinRecipe.Result "SinSuperMissileOcta",1;}}
 Class SinRecipeSuperMissileNona : SinRecipe{Default{SinRecipe.Ingredients "SinSuperMissileOcta", "SinSuperMissile";SinRecipe.Result "SinSuperMissileNona",1;}}
 Class SinRecipeSuperMissileDeca : SinRecipe{Default{SinRecipe.Ingredients "SinSuperMissileNona", "SinSuperMissile";SinRecipe.Result "SinSuperMissileDeca",1;}}
+*/
 
 //
 //	Suit Upgrades
@@ -228,3 +316,4 @@ Class PowerScrewAttack : PowerProtection{
 		//If(owner.cmd.buttons&BT_JUMP){}
 	}
 }
+Class PowerHighJumpBoots : PowerHighJump{Default{Powerup.Duration 0x7FFFFFFF;Powerup.Strength 3;}}

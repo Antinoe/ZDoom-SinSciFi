@@ -31,6 +31,32 @@ Class SinArmCannon : SinWeapon{
 		SinWeapon.DrySound "supermetroid/switch";
 	}
 	States{Spawn: ARMC Z -1; Stop;}
+	//	Change sprite when changing to Missiles.
+	//	Need to fix it.
+	/*
+	Override void HandleSprite(int status){
+		string ico = "Z";
+		If(firemode != 0){ico=ico.."Y";}
+		Else{ico=ico.."Z";}
+		icon=TexMan.CheckForTexture(ico,TexMan.Type_Any);
+		sprite=cursprite; frame=curframe;
+	}
+	*/
+	Override void ChangeMode(SinPlayer shooter){
+		Super.ChangeMode(shooter);
+		SwitchAmmo();
+		If(firemode==0){firetype=0;shooter.A_Print("Beam",0.5);HandleSprite();}
+		If(firemode==1){firetype=1;shooter.A_Print("Missile",0.5);HandleSprite();}
+		If(firemode==2){firetype=1;shooter.A_Print("Super Missile",0.5);HandleSprite();}
+		HandleSprite();
+	}
+	//	Need to get this working.
+	/*
+	Override void ReloadGun(SinInvManager invman, int index, bool active){
+		Super.ReloadGun(invman,index,active);
+		Amount++;
+	}
+	*/
 	//	intensity, duration, damage radius, tremor radius, sound.
 	void ShakeWeak(SinPlayer shooter, SinHands gun){shooter.A_Quake(1,3,0,50);}
 	void ShakeModerate(SinPlayer shooter, SinHands gun){shooter.A_Quake(2,3,0,50);}
@@ -175,21 +201,6 @@ Class SinArmCannon : SinWeapon{
 		If(firemode==1){ShakeModerate(shooter,gun);}
 		If(firemode==2){ShakeStrong(shooter,gun);}
 	}
-	Override void ChangeMode(SinPlayer shooter){
-		Super.ChangeMode(shooter);
-		SwitchAmmo();
-		If(firemode==0){firetype=0;shooter.A_Print("Beam",0.5);}
-		If(firemode==1){firetype=1;shooter.A_Print("Missile",0.5);}
-		If(firemode==2){firetype=1;shooter.A_Print("Super Missile",0.5);}
-		HandleSprite();
-	}
-	//	Need to get this working.
-	/*
-	Override void ReloadGun(SinInvManager invman, int index, bool active){
-		Super.ReloadGun(invman,index,active);
-		Amount++;
-	}
-	*/
 	Override void DoEffect(){
 		beamChargeRate--;
 		/*
