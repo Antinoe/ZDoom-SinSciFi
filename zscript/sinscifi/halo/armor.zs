@@ -123,6 +123,7 @@ Class PowerMJOLNIRMark5 : PowerShielding{
 		shieldingRegenAmount=sinscifi_mjolnirmark5_shieldingregenamount;
 		shieldingProtection=sinscifi_mjolnirmark5_shieldingprotection;
 		suitProtection=sinscifi_mjolnirmark5_suitprotection;
+		owner.A_SetBlend("White",1,105,"Orange",0);
 		Super.PostBeginPlay();
 	}
 }
@@ -143,6 +144,7 @@ Class PowerMJOLNIRMark6 : PowerShielding{
 		shieldingRegenAmount=sinscifi_mjolnirmark6_shieldingregenamount;
 		shieldingProtection=sinscifi_mjolnirmark6_shieldingprotection;
 		suitProtection=sinscifi_mjolnirmark6_suitprotection;
+		owner.A_SetBlend("White",1,105,"Orange",0);
 		Super.PostBeginPlay();
 	}
 	Override void ShieldBeginCharge(){
@@ -184,6 +186,7 @@ Class PowerMJOLNIRMark7 : PowerShielding{
 		shieldingRegenAmount=sinscifi_mjolnirmark7_shieldingregenamount;
 		shieldingProtection=sinscifi_mjolnirmark7_shieldingprotection;
 		suitProtection=sinscifi_mjolnirmark7_suitprotection;
+		owner.A_SetBlend("White",1,105,"Orange",0);
 		Super.PostBeginPlay();
 	}
 	Override void ShieldBeginCharge(){
@@ -211,6 +214,7 @@ Class PowerMJOLNIRGen2 : PowerShielding{
 		shieldingRegenAmount=sinscifi_mjolnirgen2_shieldingregenamount;
 		shieldingProtection=sinscifi_mjolnirgen2_shieldingprotection;
 		suitProtection=sinscifi_mjolnirgen2_suitprotection;
+		owner.A_SetBlend("White",1,105,"Orange",0);
 		Super.PostBeginPlay();
 	}
 	Override void ShieldBeginCharge(){
@@ -238,6 +242,7 @@ Class PowerMJOLNIRGen3 : PowerShielding{
 		shieldingRegenAmount=sinscifi_mjolnirgen3_shieldingregenamount;
 		shieldingProtection=sinscifi_mjolnirgen3_shieldingprotection;
 		suitProtection=sinscifi_mjolnirgen3_suitprotection;
+		owner.A_SetBlend("White",1,105,"Orange",0);
 		Super.PostBeginPlay();
 	}
 	Override void ShieldBeginCharge(){

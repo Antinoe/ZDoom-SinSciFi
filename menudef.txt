@@ -126,8 +126,9 @@ OptionMenu "SinSciFiOptionsMetroid"{
 	Title "Metroid Options"
 	StaticText ""
 	Command "Preset: Super Metroid", "sinscifi_metroid_preset_sm"
-	Command "Preset: Eris", "sinscifi_metroid_preset_smeris"
+	Command "Preset: Eris", "sinscifi_metroid_preset_eris"
 	Command "Preset: Metroid Fusion", "sinscifi_metroid_preset_mf"
+	Command "Preset: Zero Mission", "sinscifi_metroid_preset_zm"
 	Command "Preset: Other M", "sinscifi_metroid_preset_om"
 	StaticText ""
 	Option "Concentration","sinscifi_metroid_concentration","OnOff"
@@ -141,6 +142,7 @@ OptionMenu "SinSciFiOptionsMetroid"{
 	StaticText "-Armor Options-"
 	StaticText ""
 	StaticText "POWER SUIT"
+	Slider "Energy Tanks","sinscifi_powersuit_energytanks",1,40,1,0
 	Slider "Shielding","sinscifi_powersuit_shieldingamount",100,4000,100,0
 	Slider "Max Shielding","sinscifi_powersuit_shieldingmaxamount",100,4000,100,0
 	Slider "Shielding Regen Delay","sinscifi_powersuit_shieldingregendelay",10,200,5,0
@@ -153,6 +155,7 @@ OptionMenu "SinSciFiOptionsMetroid"{
 	StaticText "(Default: 500,500,280,35,10,0.75,0.25)"
 	StaticText ""
 	StaticText "VARIA SUIT"
+	Slider "Energy Tanks","sinscifi_variasuit_energytanks",1,40,1,0
 	Slider "Shielding","sinscifi_variasuit_shieldingamount",100,4000,100,0
 	Slider "Max Shielding","sinscifi_variasuit_shieldingmaxamount",100,4000,100,0
 	Slider "Shielding Regen Delay","sinscifi_variasuit_shieldingregendelay",10,200,5,0
@@ -165,6 +168,7 @@ OptionMenu "SinSciFiOptionsMetroid"{
 	StaticText "(Default: 1000,1000,280,35,15,0.5,0.25)"
 	StaticText ""
 	StaticText "GRAVITY SUIT"
+	Slider "Energy Tanks","sinscifi_gravitysuit_energytanks",1,40,1,0
 	Slider "Shielding","sinscifi_gravitysuit_shieldingamount",100,4000,100,0
 	Slider "Max Shielding","sinscifi_gravitysuit_shieldingmaxamount",100,4000,100,0
 	Slider "Shielding Regen Delay","sinscifi_gravitysuit_shieldingregendelay",10,200,5,0
@@ -181,14 +185,18 @@ OptionMenu "SinSciFiOptionsMetroid"{
 	StaticText "MISSILE"
 	Slider "Expansion Amount","sinscifi_missile_tank_amount",1,50,1,0
 	Slider "Contact Damage","sinscifi_missile_damage",50,1000,50,0
-	Slider "Splash Damage","sinscifi_missile_splashdamage",50,1000,50,0
+	Slider "Splash Damage","sinscifi_missile_splashdamage",0,1000,50,0
 	Slider "Regen Rate","sinscifi_missile_regenrate",35,525,35,0
 	StaticText "(Default: 10,100,50,175)"
 	StaticText ""
 	StaticText "SUPER MISSILE"
+	Option "Has Separate Ammo?","sinscifi_supermissile_ammo","OnOff"
+	StaticText "If true, Super Missile ammo is separate from Missile ammo."
+	StaticText "If false, it will cost 5 Missiles to fire 1 Super Missile."
+	StaticText ""
 	Slider "Expansion Amount","sinscifi_supermissile_tank_amount",1,50,1,0
 	Slider "Contact Damage","sinscifi_supermissile_damage",50,1000,50,0
-	Slider "Splash Damage","sinscifi_supermissile_splashdamage",50,1000,50,0
+	Slider "Splash Damage","sinscifi_supermissile_splashdamage",0,1000,50,0
 	Slider "Regen Rate","sinscifi_supermissile_regenrate",35,525,35,0
 	StaticText "(Default: 5,500,250,525)"
 }

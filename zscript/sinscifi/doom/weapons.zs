@@ -1,4 +1,91 @@
 
+//	Divide all DOOM Eternal Health/Damage values by 5.
+//	Why? Because the Shotgun's damage is 320.
+//	Dwelling Sin's buckshot is 64.
+//	320 / 5 = 64.
+//	This should balance out the other weapons too.
+//
+//	Demons
+//
+/*
+Zombie 	180
+Imp 	180
+Gargoyle 	280
+Soldier 	380
+Shield Guy 	480
+Mech-Zombie 	480
+Prowler 	980
+Carcass 	1180
+Whiplash 	1980
+Revenant 	1980
+Cacodemon 	2480
+Hellknight 	2480
+Dreadknight 	2980
+Arachnotron 	2980
+Mancubus 	3480
+Marauder 	4980
+Pain Elemental 	4980
+Cyber-Mancubus 	5980
+Archvile 	5980
+Baron 	6980
+Tyrant 	9980
+*/
+
+//
+//	Weapons
+//
+/*
+Plasma Rifle 	40 (first shot: 20)
+Heavy Cannon 	60 (headshot: 160)
+Chaingun 	80
+Shotgun 	320
+Ballista 	860 (air demon: 1340)
+Rocket 	900
+Super-Shotgun 	1600
+Micro-Missile 	100
+Precision Bolt 	400
+Sticky Bomb 	400
+Destroyer Blade 	800 / 1600 / 2400
+*/
+
+//	Might go the route of tracking ammo via Player's Inventory.
+Class DOOMAmmo : Inventory{Default{}}
+Class DOOMShotgunAmmo : DOOMAmmo{Default{Inventory.MaxAmount 24;}}
+Class DOOMRifleAmmo : DOOMAmmo{Default{Inventory.MaxAmount 180;}}
+Class DOOMPlasmaAmmo : DOOMAmmo{Default{Inventory.MaxAmount 250;}}
+Class DOOMRocketAmmo : DOOMAmmo{Default{Inventory.MaxAmount 11;}}
+Class DOOMBFGAmmo : DOOMAmmo{Default{Inventory.MaxAmount 2;}}
+Class DOOMChainsawAmmo : DOOMAmmo{Default{Inventory.MaxAmount 3;}}
+
+Class DOOMChainsawProjectile : Actor{
+	Default{
+		Radius 10;
+		Height 10;
+		Speed 30;
+		Damage 0;
+		Projectile;
+		DamageFunction(100);
+		Damagetype "Cut";
+		SeeSound "";
+		DeathSound "";
+		Alpha 0;
+	}
+	States{
+		Spawn:
+			#### # 5 Bright;
+			Stop;
+		Death:
+			Goto Death.Hit;
+		Death.Hit:
+			#### # 0{
+				//	Spawn ammo pickups.
+				A_StartSound("doom2016/chainsaw",CHAN_AUTO,CHANF_OVERLAP);
+				A_Quake(2,20,0,100);
+			}
+			Stop;
+	}
+}
+
 /*
 Class SinPistol : SinWeapon replaces Pistol{
 	Default{

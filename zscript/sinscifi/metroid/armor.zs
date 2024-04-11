@@ -32,9 +32,9 @@ Class SinGravitySuit : SinShielding{
 Class PowerPowerSuit : PowerShielding{
 	Default{
 		Inventory.Icon "SUITZ0";
-		//	Can't get colors working, for some reason..
-		//Powerup.Color 0, 255, 0, 0.125;
-		//Powerup.Color "ff ff ff", 0.2;
+		//	Energy Tanks won't work.. No idea why. :moyai:
+		//	I'll just have to fix it when I get back this week.
+		//PowerShielding.EnergyTanks 10;
 		PowerShielding.HitSound "halo3/shieldhit";
 		PowerShielding.SiphonSound "halo3/shieldsiphon";
 		PowerShielding.LowSound "halo3/shieldlow";
@@ -45,8 +45,10 @@ Class PowerPowerSuit : PowerShielding{
 		Super.PostBeginPlay();
 		If(cvar.GetCVar('sinscifi_metroid_recharge').getbool()){shieldingRechargeable=1;}Else{shieldingRechargeable=0;}
 		If(cvar.GetCVar('sinscifi_metroid_siphon').getbool()){shieldingSiphon=1;}Else{shieldingSiphon=0;}
+		minDamage = sinscifi_powersuit_mindamage;
 		shieldingAmount = sinscifi_powersuit_shieldingamount;
 		shieldingMaxAmount = sinscifi_powersuit_shieldingmaxamount;
+		energyTanks = sinscifi_powersuit_energytanks;
 		shieldingRegenDelay = sinscifi_powersuit_shieldingregendelay;
 		shieldingRegenRate = sinscifi_powersuit_shieldingregenrate;
 		shieldingRegenAmount = sinscifi_powersuit_shieldingregenamount;
@@ -79,6 +81,8 @@ Class PowerVariaSuit : PowerPowerSuit{
 	}
 	Override void PostBeginPlay(){
 		Super.PostBeginPlay();
+		minDamage = sinscifi_variasuit_mindamage;
+		energyTanks = sinscifi_variasuit_energytanks;
 		shieldingAmount = sinscifi_variasuit_shieldingamount;
 		shieldingMaxAmount = sinscifi_variasuit_shieldingmaxamount;
 		shieldingRegenDelay = sinscifi_variasuit_shieldingregendelay;
@@ -104,6 +108,8 @@ Class PowerGravitySuit : PowerPowerSuit{
 	}
 	Override void PostBeginPlay(){
 		Super.PostBeginPlay();
+		minDamage = sinscifi_gravitysuit_mindamage;
+		energyTanks = sinscifi_gravitysuit_energytanks;
 		shieldingAmount = sinscifi_gravitysuit_shieldingamount;
 		shieldingMaxAmount = sinscifi_gravitysuit_shieldingmaxamount;
 		shieldingRegenDelay = sinscifi_gravitysuit_shieldingregendelay;

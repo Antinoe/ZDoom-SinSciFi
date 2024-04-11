@@ -1,5 +1,38 @@
 
 //
+//	DOOM Eternal
+//
+doometernal/extralife "sounds/doometernal/ExtraLife.wav"
+doometernal/extralifetoast "sounds/doometernal/ExtraLifeToast.wav"
+doometernal/extralifestart "sounds/doometernal/ExtraLifeStart.wav"
+doometernal/weapons/chaingun/bulletenergyshield1 "sounds/doometernal/weapons/chaingun/BulletEnergyShield1.wav"
+doometernal/weapons/chaingun/bulletenergyshield2 "sounds/doometernal/weapons/chaingun/BulletEnergyShield2.wav"
+doometernal/weapons/chaingun/bulletenergyshield3 "sounds/doometernal/weapons/chaingun/BulletEnergyShield3.wav"
+doometernal/weapons/chaingun/bulletenergyshield4 "sounds/doometernal/weapons/chaingun/BulletEnergyShield4.wav"
+doometernal/weapons/chaingun/bulletenergyshield5 "sounds/doometernal/weapons/chaingun/BulletEnergyShield5.wav"
+$random doometernal/weapons/chaingun/bulletenergyshield
+{
+	doometernal/weapons/chaingun/bulletenergyshield1
+	doometernal/weapons/chaingun/bulletenergyshield2
+	doometernal/weapons/chaingun/bulletenergyshield3
+	doometernal/weapons/chaingun/bulletenergyshield4
+	doometernal/weapons/chaingun/bulletenergyshield5
+}
+doometernal/weapons/chaingun/shotgunenergyshield1 "sounds/doometernal/weapons/chaingun/ShotgunEnergyShield1.wav"
+doometernal/weapons/chaingun/shotgunenergyshield2 "sounds/doometernal/weapons/chaingun/ShotgunEnergyShield2.wav"
+doometernal/weapons/chaingun/shotgunenergyshield3 "sounds/doometernal/weapons/chaingun/ShotgunEnergyShield3.wav"
+doometernal/weapons/chaingun/shotgunenergyshield4 "sounds/doometernal/weapons/chaingun/ShotgunEnergyShield4.wav"
+doometernal/weapons/chaingun/shotgunenergyshield5 "sounds/doometernal/weapons/chaingun/ShotgunEnergyShield5.wav"
+$random doometernal/weapons/chaingun/shotgunenergyshield
+{
+	doometernal/weapons/chaingun/shotgunenergyshield1
+	doometernal/weapons/chaingun/shotgunenergyshield2
+	doometernal/weapons/chaingun/shotgunenergyshield3
+	doometernal/weapons/chaingun/shotgunenergyshield4
+	doometernal/weapons/chaingun/shotgunenergyshield5
+}
+
+//
 //	Super Metroid
 //
 supermetroid/switch "sounds/supermetroid/AmmoSelect.wav"
@@ -28,6 +61,13 @@ supermetroid/pickupheal "sounds/supermetroid/PickupHeal.wav"
 supermetroid/impact "sounds/supermetroid/Impact.wav"
 supermetroid/impactlow1 "sounds/supermetroid/ImpactLow1.wav"
 supermetroid/impactlow2 "sounds/supermetroid/ImpactLow2.wav"
+supermetroid/damage "sounds/supermetroid/SamusDamage.wav"
+supermetroid/lowshielding "sounds/supermetroid/SamusLowHealth.wav"
+//
+//	Super Metroid: Eris
+//
+eris/lowshielding "sounds/supermetroid/SamusDamage.wav"
+$pitchset eris/lowshielding 0.5;
 
 //
 //	Halo 3
@@ -37,7 +77,7 @@ halo3/shieldsiphon "sounds/halo3/ShieldHit.wav"
 $pitchset halo3/shieldsiphon 0.75;
 $volume halo3/shieldsiphon 1;
 halo3/shieldlow "sounds/halo3/ShieldLow.wav"
-halo3/shielddepleted "sounds/halo3/ShieldDeplated.wav"
+halo3/shielddepleted "sounds/halo3/ShieldDepleted.wav"
 halo3/shieldcharge "sounds/halo3/ShieldCharge.wav"
 //	Weapons
 halo3/weapons/gravityhammer/hammerhit1 "sounds/halo3/weapons/gravityhammer/HammerHit1.wav"

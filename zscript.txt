@@ -2,6 +2,7 @@ version "4.0"
 
 #include "zscript/sinscifi/player.zs"
 #include "zscript/sinscifi/doom/armor.zs"
+#include "zscript/sinscifi/doom/powerups.zs"
 #include "zscript/sinscifi/doom/weapons.zs"
 #include "zscript/sinscifi/halo/armor.zs"
 #include "zscript/sinscifi/halo/weapons.zs"

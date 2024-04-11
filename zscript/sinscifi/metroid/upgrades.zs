@@ -89,11 +89,13 @@ Class SinMissile : SinAttachment{
 	States{Spawn: SMUP KL 3; Loop;}
 	Override void Attached(SinWeapon gun){
 		let cannon=SinArmCannon(gun);
+		cannon.hasMissiles=1;
 		cannon.missileAmount+=(sinscifi_missile_tank_amount*1);
 		cannon.missileMaxAmount+=(sinscifi_missile_tank_amount*1);
 	}
 	Override void Detached(SinWeapon gun){
 		let cannon=SinArmCannon(gun);
+		cannon.hasMissiles=0;
 		cannon.missileAmount-=(sinscifi_missile_tank_amount*1);
 		cannon.missileMaxAmount-=(sinscifi_missile_tank_amount*1);
 	}
@@ -189,11 +191,13 @@ Class SinSuperMissile : SinAttachment{
 	States{Spawn: SMUP MN 3; Loop;}
 	Override void Attached(SinWeapon gun){
 		let cannon=SinArmCannon(gun);
+		cannon.hasSuperMissiles=1;
 		cannon.superMissileAmount+=(sinscifi_supermissile_tank_amount*1);
 		cannon.superMissileMaxAmount+=(sinscifi_supermissile_tank_amount*1);
 	}
 	Override void Detached(SinWeapon gun){
 		let cannon=SinArmCannon(gun);
+		cannon.hasSuperMissiles=0;
 		cannon.superMissileAmount-=(sinscifi_supermissile_tank_amount*1);
 		cannon.superMissileMaxAmount-=(sinscifi_supermissile_tank_amount*1);
 	}

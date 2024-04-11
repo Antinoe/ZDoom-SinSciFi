@@ -7,6 +7,7 @@ server bool sinscifi_biofoaminjector = true;
 server int sinscifi_maxbiofoamhealamount = 100;
 server bool sinscifi_mjolnir_biofoaminjector = true;
 
+server int sinscifi_mjolnirmark5_mindamage = 1;
 server int sinscifi_mjolnirmark5_shieldingamount = 75;
 server int sinscifi_mjolnirmark5_shieldingmaxamount = 75;
 server int sinscifi_mjolnirmark5_shieldingregendelay = 175;
@@ -15,6 +16,7 @@ server int sinscifi_mjolnirmark5_shieldingregenamount = 1;
 server float sinscifi_mjolnirmark5_shieldingprotection = 0.5;
 server float sinscifi_mjolnirmark5_suitprotection = 0.5;
 
+server int sinscifi_mjolnirmark6_mindamage = 1;
 server int sinscifi_mjolnirmark6_shieldingamount = 70;
 server int sinscifi_mjolnirmark6_shieldingmaxamount = 70;
 server int sinscifi_mjolnirmark6_shieldingregendelay = 140;
@@ -23,6 +25,7 @@ server int sinscifi_mjolnirmark6_shieldingregenamount = 1;
 server float sinscifi_mjolnirmark6_shieldingprotection = 0.5;
 server float sinscifi_mjolnirmark6_suitprotection = 0.5;
 
+server int sinscifi_mjolnirmark7_mindamage = 1;
 server int sinscifi_mjolnirmark7_shieldingamount = 70;
 server int sinscifi_mjolnirmark7_shieldingmaxamount = 70;
 server int sinscifi_mjolnirmark7_shieldingregendelay = 140;
@@ -31,6 +34,7 @@ server int sinscifi_mjolnirmark7_shieldingregenamount = 1;
 server float sinscifi_mjolnirmark7_shieldingprotection = 0.5;
 server float sinscifi_mjolnirmark7_suitprotection = 0.5;
 
+server int sinscifi_mjolnirgen2_mindamage = 1;
 server int sinscifi_mjolnirgen2_shieldingamount = 70;
 server int sinscifi_mjolnirgen2_shieldingmaxamount = 70;
 server int sinscifi_mjolnirgen2_shieldingregendelay = 140;
@@ -39,6 +43,7 @@ server int sinscifi_mjolnirgen2_shieldingregenamount = 1;
 server float sinscifi_mjolnirgen2_shieldingprotection = 0.5;
 server float sinscifi_mjolnirgen2_suitprotection = 0.5;
 
+server int sinscifi_mjolnirgen3_mindamage = 1;
 server int sinscifi_mjolnirgen3_shieldingamount = 100;
 server int sinscifi_mjolnirgen3_shieldingmaxamount = 100;
 server int sinscifi_mjolnirgen3_shieldingregendelay = 35;
@@ -54,6 +59,8 @@ server bool sinscifi_metroid_siphon = true;
 server bool sinscifi_metroid_concentration = false;
 server bool sinscifi_metroid_heat = false;
 
+server int sinscifi_powersuit_mindamage = 1;
+server int sinscifi_powersuit_energytanks = 5;
 server int sinscifi_powersuit_shieldingamount = 500;
 server int sinscifi_powersuit_shieldingmaxamount = 500;
 server int sinscifi_powersuit_shieldingregendelay = 280;
@@ -62,6 +69,8 @@ server int sinscifi_powersuit_shieldingregenamount = 10;
 server float sinscifi_powersuit_shieldingprotection = 0.75;
 server float sinscifi_powersuit_suitprotection = 0.25;
 
+server int sinscifi_variasuit_mindamage = 1;
+server int sinscifi_variasuit_energytanks = 10;
 server int sinscifi_variasuit_shieldingamount = 1000;
 server int sinscifi_variasuit_shieldingmaxamount = 1000;
 server int sinscifi_variasuit_shieldingregendelay = 280;
@@ -70,6 +79,8 @@ server int sinscifi_variasuit_shieldingregenamount = 15;
 server float sinscifi_variasuit_shieldingprotection = 0.5;
 server float sinscifi_variasuit_suitprotection = 0.25;
 
+server int sinscifi_gravitysuit_mindamage = 1;
+server int sinscifi_gravitysuit_energytanks = 20;
 server int sinscifi_gravitysuit_shieldingamount = 2000;
 server int sinscifi_gravitysuit_shieldingmaxamount = 2000;
 server int sinscifi_gravitysuit_shieldingregendelay = 280;
@@ -82,12 +93,14 @@ server int sinscifi_missile_tank_amount = 10;
 server int sinscifi_missile_damage = 100;
 server int sinscifi_missile_splashdamage = 50;
 server int sinscifi_missile_regenrate = 175;
+server bool sinscifi_supermissile_ammo = true;
 server int sinscifi_supermissile_tank_amount = 5;
 server int sinscifi_supermissile_damage = 500;
 server int sinscifi_supermissile_splashdamage = 250;
 server int sinscifi_supermissile_regenrate = 525;
 
 //	Doom
+server int sinscifi_praetorsuit_mindamage = 1;
 server int sinscifi_praetorsuit_shieldingamount = 100;
 server int sinscifi_praetorsuit_shieldingmaxamount = 100;
 server int sinscifi_praetorsuit_shieldingregendelay = 140;

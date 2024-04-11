@@ -12,6 +12,8 @@ Class SinArmCannon : SinWeapon{
 	bool plasma; property Plasma : plasma;
 	bool hyper; property Hyper : hyper;
 	int heatLevel; property HeatLevel : heatLevel;
+	bool hasMissiles; property HasMissiles : hasMissiles;
+	bool hasSuperMissiles; property HasSuperMissiles : hasSuperMissiles;
 	int missileAmount; property MissileAmount : missileAmount;
 	int missileMaxAmount; property MaxMissiles : missileMaxAmount;
 	int superMissileAmount; property SuperMissileAmount : superMissileAmount;
@@ -24,11 +26,9 @@ Class SinArmCannon : SinWeapon{
 		SinWeapon.FireType FIRE_AUTO;
 		SinWeapon.AttackType ATTACK_PROJECTILE;
 		SinWeapon.FireMode1 1,5;
-		SinWeapon.FireMode2 1,10;
-		SinWeapon.FireMode3 1,20;
+		SinWeapon.FireMode2 1,7;
+		SinWeapon.FireMode3 1,14;
 		SinItem.BigItem 0;
-		SinWeapon.SwitchSound "supermetroid/switch";
-		SinWeapon.DrySound "supermetroid/switch";
 	}
 	States{Spawn: ARMC Z -1; Stop;}
 	//	Change sprite when changing to Missiles.
@@ -42,12 +42,88 @@ Class SinArmCannon : SinWeapon{
 		sprite=cursprite; frame=curframe;
 	}
 	*/
+	Override void PostBeginPlay(){
+		SetSoundSwitch();
+		SetSoundDryFire();
+	}
+	Void SetSoundSwitch(){
+		SwitchSound="supermetroid/switch";
+	}
+	Void SetSoundDryFire(){
+		DrySound="supermetroid/switch";
+	}
+	Void SetSoundMissileFire(SinPlayer shooter){
+		AttackSound="supermetroid/missileshot";
+	}
+	Void SetSoundSuperMissileFire(SinPlayer shooter){
+		AttackSound="supermetroid/supermissileshot";
+	}
+	Virtual void ModeBeam(SinPlayer shooter){
+		//firemode=0;
+		firetype=0;
+		shooter.A_Print("Beam",0.5);
+		SetSoundSwitch();
+		CheckAmmo();
+		HandleSprite();
+	}
+	Virtual void ModeMissile(SinPlayer shooter){
+		//firemode=1;
+		firetype=1;
+		If(missileAmount>0){
+			shooter.A_Print("Missiles",0.5);
+		}
+		Else{
+			shooter.A_PrintBold("Missiles [EMPTY]",0.5);
+		}
+		CheckAmmo();
+		SetSoundSwitch();
+		HandleSprite();
+	}
+	Virtual void ModeSuperMissile(SinPlayer shooter){
+		//firemode=2;
+		firetype=1;
+		If(superMissileAmount>0){
+			shooter.A_Print("Super Missiles",0.5);
+		}
+		Else{
+			shooter.A_PrintBold("Super Missiles [EMPTY]",0.5);
+		}
+		CheckAmmo();
+		SetSoundSwitch();
+		HandleSprite();
+	}
 	Override void ChangeMode(SinPlayer shooter){
 		Super.ChangeMode(shooter);
-		SwitchAmmo();
-		If(firemode==0){firetype=0;shooter.A_Print("Beam",0.5);HandleSprite();}
-		If(firemode==1){firetype=1;shooter.A_Print("Missile",0.5);HandleSprite();}
-		If(firemode==2){firetype=1;shooter.A_Print("Super Missile",0.5);HandleSprite();}
+		If(firemode==0){
+			ModeBeam(shooter);
+		}
+		If(firemode==1){
+			ModeMissile(shooter);
+			//	Need to get this working.
+			/*
+			If(hasMissiles){
+				ModeMissile(shooter);
+			}
+			If(!hasMissiles && hasSuperMissiles){
+				ModeSuperMissile(shooter);
+			}
+			If(!hasMissiles && !hasSuperMissiles){
+				ModeBeam(shooter);
+			}
+			*/
+		}
+		If(firemode==2){
+			ModeSuperMissile(shooter);
+			//	Same with this.
+			/*
+			If(hasSuperMissiles){
+				ModeSuperMissile(shooter);
+			}
+			Else{
+				ModeBeam(shooter);
+			}
+			*/
+		}
 		HandleSprite();
 	}
 	//	Need to get this working.
@@ -62,19 +138,36 @@ Class SinArmCannon : SinWeapon{
 	void ShakeModerate(SinPlayer shooter, SinHands gun){shooter.A_Quake(2,3,0,50);}
 	void ShakeStrong(SinPlayer shooter, SinHands gun){shooter.A_Quake(3,3,0,50);}
 	//	This function exists to check for the current Missile/Super Missile count.
-	Virtual void SwitchAmmo(){
+	Virtual void CheckAmmo(){
+		If(firemode==1){Amount=missileAmount;}
+		If(firemode==2){
+			If(!sinscifi_supermissile_ammo){
+				Amount=missileAmount / 5;
+			}
+			Else{
+				Amount=superMissileAmount;
+			}
+		}
 		//A_Log("\cAHeat"); A_LogInt(heatLevel);
 		A_Log("\cAMissiles"); A_LogInt(missileAmount);
-		A_Log("\cDSuper Missiles"); A_LogInt(superMissileAmount);
-		If(firemode==1){Amount=missileAmount;}
-		If(firemode==2){Amount=superMissileAmount;}
+		If(sinscifi_supermissile_ammo){A_Log("\cDSuper Missiles"); A_LogInt(superMissileAmount);}
 	}
 	//	This exists much like the above, except it ensures ammo consumption.
 	Virtual void FireAmmo(){
-		If(firemode==1){missileAmount--;}
-		If(firemode==2){superMissileAmount--;}
+		If(firemode==1){
+			missileAmount--;
+		}
+		If(firemode==2){
+			If(sinscifi_supermissile_ammo){
+				superMissileAmount--;
+			}
+			Else{
+				missileAmount -= 5;
+			}
+		}
+		CheckAmmo();
 	}
-	//	Exactly the same as `SwitchAmmo()`, except this runs every frame for Heat.
+	//	Exactly the same as `CheckAmmo()`, except this runs every frame for Heat.
 	Virtual void CheckHeat(){
 		If(firemode==0){Amount=heatLevel;}
 	}
@@ -171,19 +264,13 @@ Class SinArmCannon : SinWeapon{
 		//
 		If(firemode==1){
 			proj="Missile";
-			If(ballisticPower==2){
-				proj="Missile";
-			}
-			AttackSound="supermetroid/missileshot";
+			SetSoundMissileFire(shooter);
 			ammocost=1;
 			multishot=1;
 		}
 		If(firemode==2){
 			proj="SuperMissile";
-			If(ballisticPower==2){
-				proj="SuperMissile";
-			}
-			AttackSound="supermetroid/supermissileshot";
+			SetSoundSuperMissileFire(shooter);
 			ammocost=1;
 			multishot=1;
 		}
@@ -215,16 +302,20 @@ Class SinArmCannon : SinWeapon{
 		//	Missile Regen
 		missileRegenRate--;
 		superMissileRegenRate--;
+		//	These next 2 lines exist so Missile/Super Missile ammo
+		//	doesn't refill right after firing when at max.
+		If(missileAmount>=missileMaxAmount){missileRegenRate = sinscifi_missile_regenrate;}
+		If(superMissileAmount>=superMissileMaxAmount){superMissileRegenRate = sinscifi_supermissile_regenrate;}
 		If(missileRegenRate <= 0 && missileAmount<missileMaxAmount){
 			missileAmount++;
-			SwitchAmmo();
+			CheckAmmo();
 			missileRegenRate = sinscifi_missile_regenrate;
 			owner.A_StartSound("supermetroid/pickupammo",CHAN_AUTO,CHANF_OVERLAP);
 			If(cvar.GetCVar('sinscifi_debug').getbool()){owner.A_Print("BUILT MISSILE",0.25);}
 		}
-		If(superMissileRegenRate <= 0 && superMissileAmount<superMissileMaxAmount){
+		If(sinscifi_supermissile_ammo && superMissileRegenRate <= 0 && superMissileAmount<superMissileMaxAmount){
 			superMissileAmount++;
-			SwitchAmmo();
+			CheckAmmo();
 			superMissileRegenRate = sinscifi_supermissile_regenrate;
 			owner.A_StartSound("supermetroid/pickupammolow",CHAN_AUTO,CHANF_OVERLAP);
 			If(cvar.GetCVar('sinscifi_debug').getbool()){owner.A_Print("BUILT SUPER MISSILE",0.25);}
